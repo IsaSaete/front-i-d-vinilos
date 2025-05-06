@@ -26,5 +26,5 @@ export default tseslint.config(
       "no-console": "error",
       "max-params": ["error", 4],
     },
-  }
+  },
 );
