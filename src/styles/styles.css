@@ -1,3 +1,7 @@
+:root {
+  --main-color: #304b5f;
+}
+
 *,
 ::after,
 ::before {
@@ -6,10 +10,9 @@
 
 body {
   margin: 0;
+  font-family: "Inter Variable", sans-serif;
 }
 
-.main-container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 10px;
+img {
+  max-width: 100%;
 }
