@@ -7,7 +7,7 @@ const NotFoundPAge: React.FC = () => {
       <img
         className="loader"
         src="/page-not-found.svg"
-        alt="Página no encontrada"
+        alt="Error 404. El 0 está representado con un vinilo"
         width={310}
         height={110}
       />
