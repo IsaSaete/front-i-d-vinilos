@@ -13,5 +13,15 @@ describe("Given the Layout component", () => {
 
       expect(image).toBeInTheDocument();
     });
+
+    test("Then it should show a 'Listado' link", () => {
+      const expectedLink = /listado/i;
+
+      render(<Layout />, { wrapper: MemoryRouter });
+
+      const listLink = screen.getByRole("link", { name: expectedLink });
+
+      expect(listLink).toBeInTheDocument();
+    });
   });
 });
