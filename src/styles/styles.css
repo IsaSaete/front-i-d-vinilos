@@ -1,5 +1,6 @@
 :root {
   --main-color: #304b5f;
+  --secondary-color: #fafafa;
 }
 
 *,
@@ -9,6 +10,7 @@
 }
 
 body {
+  background-color: var(--secondary-color);
   margin: 0;
   font-family: "Inter Variable", sans-serif;
 }
@@ -19,4 +21,8 @@ img {
 
 h1 {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
