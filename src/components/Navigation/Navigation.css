@@ -1,0 +1,10 @@
+.navigation__link {
+  color: var(--secondary-color);
+}
+
+.active {
+  text-decoration: underline;
+  font-weight: 700;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 3px;
+}
