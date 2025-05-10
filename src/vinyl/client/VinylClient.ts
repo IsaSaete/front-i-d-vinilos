@@ -6,14 +6,14 @@ import type {
 } from "./types";
 
 class VinylClient implements VinylClientStructure {
-  private apiUtl = import.meta.env.VITE_API_URL;
+  private readonly apiUrl = import.meta.env.VITE_API_URL;
 
   public getVinyls = async (
     pageNumber?: number,
   ): Promise<VinylsCollectionData> => {
     const url = !pageNumber
-      ? `${this.apiUtl}/vinyls`
-      : `${this.apiUtl}/vinyls?page=${pageNumber}`;
+      ? `${this.apiUrl}/vinyls`
+      : `${this.apiUrl}/vinyls?page=${pageNumber}`;
 
     const response = await fetch(url);
 
