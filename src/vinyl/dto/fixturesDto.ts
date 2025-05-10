@@ -177,6 +177,21 @@ export const internalEmpire: VinylDto = {
   isOwned: false,
 };
 
+export const weStillBelieve: VinylDto = {
+  _id: "64fbf39d8c9d1e4dabc5f1e2",
+  title: "We Still Believe",
+  artist: "The Blessed Madonna",
+  country: "USA",
+  releaseDate: "2016-07-15",
+  genre: "Techno",
+  format: '12"',
+  coverImageUrl: "https://example.com/we-still-believe.jpg",
+  styles: ["Detroit Techno", "House"],
+  notes:
+    "Una pieza que conecta el espíritu del techno clásico con el activismo contemporáneo.",
+  isOwned: true,
+};
+
 export const vinylsFixturesDto: VinylDto[] = [
   strangeWeather,
   lp5,
@@ -190,4 +205,5 @@ export const vinylsFixturesDto: VinylDto[] = [
   theCaretaker,
   awakeningsLive,
   internalEmpire,
+  weStillBelieve,
 ];

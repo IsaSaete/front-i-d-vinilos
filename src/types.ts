@@ -3,7 +3,7 @@ export interface Vinyl {
   title: string;
   artist: string;
   country: string;
-  releaseDate: Date;
+  releaseDate: string;
   genre: string;
   format: string;
   coverImageUrl: string;

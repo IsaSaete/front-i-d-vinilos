@@ -4,9 +4,9 @@ import { mapVinylsDtoToVinyls } from "../../dto/mapper";
 import { server } from "../../mocks/node";
 import VinylClient from "../VinylClient";
 
-describe("Given the getVinyls method od VinylClient", () => {
+describe("Given the getVinyls method of VinylClient", () => {
   describe("When it's called", () => {
-    test("Then it should return Strange Weather, Isn't It?, LP5, Spirit of Eden, In Colour, From Deewee & Minimal Nation vinyls ", async () => {
+    test("Then it should return Strange Weather,Isn't It?, LP5, Spirit of Eden, In Colour, From Deewee & Minimal Nation vinyls ", async () => {
       const vinylsByPage = 6;
       const expectedVinyls = mapVinylsDtoToVinyls(vinylsFixturesDto).slice(
         0,
@@ -37,7 +37,7 @@ describe("Given the getVinyls method od VinylClient", () => {
   });
 
   describe("When it's called and the server responds with an error", () => {
-    test("Then it should thro an error with message 'Error fetching posts'", () => {
+    test("Then it should throw an error with message 'Error fetching posts'", () => {
       const expectedErrorMessage = "Error fetching vinyls";
 
       const apiUrl = import.meta.env.VITE_API_URL;
