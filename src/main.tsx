@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router";
 import { Provider } from "react-redux";
 import AppRouter from "./router/AppRouter";
 import store from "./app/store";
-import "@fontsource-variable/inter/index.css";
+import "@fontsource-variable/lexend/index.css";
 import "./styles/styles.css";
 
 createRoot(document.getElementById("root")!).render(
