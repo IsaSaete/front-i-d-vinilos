@@ -12,14 +12,19 @@
 body {
   background-color: var(--secondary-color);
   margin: 0;
-  font-family: "Lexend Variable", sans-serif;
+  font-family:
+    "Lexend Variable",
+    sans-serif,
+    system-ui,
+    -apple-system;
 }
 
 img {
   max-width: 100%;
 }
 
-h1 {
+h1,
+h2 {
   margin: 0;
 }
 

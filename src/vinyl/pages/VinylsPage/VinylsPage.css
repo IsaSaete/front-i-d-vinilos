@@ -10,3 +10,8 @@
   color: var(--main-color);
   font-weight: 400;
 }
+
+.page-counter {
+  color: var(--main-color);
+  font-weight: 600;
+}
