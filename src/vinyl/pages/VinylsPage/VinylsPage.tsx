@@ -1,8 +1,9 @@
 import { useSearchParams } from "react-router";
 import { useEffect } from "react";
 import useVinyls from "../../hooks/useVinyls";
-import Loader from "../../componentes/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import "./VinylsPage.css";
+import VinylsList from "../../components/VinylsList/VinylsList";
 
 const VinylsPage: React.FC = () => {
   const { vinylCollection, loadVinylsByPage } = useVinyls();
@@ -23,6 +24,8 @@ const VinylsPage: React.FC = () => {
     return <Loader />;
   }
 
+  const vinyls = vinylCollection.vinyls;
+
   return (
     <>
       <header className="header-content">
@@ -31,6 +34,7 @@ const VinylsPage: React.FC = () => {
           {VinylsByPage}/{vinylsTotal}
         </span>
       </header>
+      <VinylsList vinyls={vinyls} />
     </>
   );
 };
