@@ -1,0 +1,12 @@
+.header-content {
+  display: flex;
+  border-bottom: 2px solid var(--main-color);
+  line-height: 24px;
+  justify-content: space-between;
+}
+
+.page-title {
+  font-size: 1.875rem;
+  color: var(--main-color);
+  font-weight: 400;
+}
