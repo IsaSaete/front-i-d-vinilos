@@ -4,7 +4,8 @@
 
 .active {
   text-decoration: underline;
-  font-weight: 700;
+  font-weight: 600;
   text-underline-offset: 3px;
   text-decoration-thickness: 3px;
+  letter-spacing: 0.8px;
 }
