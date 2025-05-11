@@ -6,7 +6,7 @@ import store from "../../../app/store";
 
 describe("Given de VinylsPage component", () => {
   describe("When it renders", () => {
-    test("Then it should show Vinilos inside a level 1 heading", () => {
+    test("Then it should show Vinilos inside a level 1 heading", async () => {
       const expectedTitle = /vinilos/i;
 
       render(
@@ -16,7 +16,7 @@ describe("Given de VinylsPage component", () => {
         { wrapper: MemoryRouter },
       );
 
-      const pageTitle = screen.getByRole("heading", {
+      const pageTitle = await screen.findByRole("heading", {
         name: expectedTitle,
         level: 1,
       });
