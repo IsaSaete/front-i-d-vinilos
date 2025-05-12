@@ -1,7 +1,7 @@
 .header-content {
   display: flex;
   border-bottom: 2px solid var(--main-color);
-  line-height: 24px;
+  line-height: 28px;
   justify-content: space-between;
 }
 
@@ -12,6 +12,7 @@
 }
 
 .page-counter {
+  font-size: 1.5rem;
   color: var(--main-color);
-  font-weight: 600;
+  font-weight: 400;
 }

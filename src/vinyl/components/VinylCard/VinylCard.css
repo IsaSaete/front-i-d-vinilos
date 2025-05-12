@@ -1,0 +1,48 @@
+.vinyl {
+  background-color: var(--backgroundCard-color);
+  padding: 17px;
+  border-radius: 6px;
+  box-shadow: 0.4rem 0.4rem 0.625rem var(--main-color);
+}
+
+.vinyl__info {
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.vinyl__title {
+  color: var(--main-color);
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
+  line-height: 1.875rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 5px var(--secondary-color);
+}
+
+.vinyl__artist {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.image-container {
+  min-height: 330px;
+  background-color: var(--secondary-color);
+  padding: 30px 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid var(--main-color);
+}
+
+.vinyl__image {
+  height: auto;
+}
+
+.vinyl__image[alt] {
+  text-align: center;
+  color: var(--main-color);
+}

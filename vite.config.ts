@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   test: {
     globals: true,
-    reporters: [`verbose`],
+    reporters: ["verbose"],
     environment: "jsdom",
     setupFiles: ["src/setupTests.ts"],
     coverage: {
