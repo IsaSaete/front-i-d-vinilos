@@ -1,4 +1,6 @@
 import type { Vinyl } from "../../../types";
+import VinylCard from "../VinylCard/VinylCard";
+import "./VinylsList.css";
 
 interface VinylsListProps {
   vinyls: Vinyl[];
@@ -6,9 +8,11 @@ interface VinylsListProps {
 
 const VinylsList: React.FC<VinylsListProps> = ({ vinyls }) => {
   return (
-    <ul>
-      {vinyls.map((vinyl) => (
-        <li key={vinyl.id}></li>
+    <ul className="vinyls">
+      {vinyls.map((vinyl, index) => (
+        <li key={vinyl.id}>
+          <VinylCard vinyl={vinyl} index={index} />
+        </li>
       ))}
     </ul>
   );
