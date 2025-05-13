@@ -1,6 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import VinylsList from "./VinylsList";
-import { aquellosOjosVerdes, elCirculo, vinylsTestData } from "../../fixtures";
+import {
+  aquellosOjosVerdes,
+  elCirculoNotOwned,
+  vinylsTestData,
+} from "../../fixtures";
 
 describe("Given the VinylsList component", () => {
   describe("When it receives a 'Aquellos ojos verdes' & 'El Círculo vinyls' vinyls", () => {
@@ -9,7 +13,7 @@ describe("Given the VinylsList component", () => {
         aquellosOjosVerdes.title,
         "i",
       );
-      const expectedElCirculoTitle = new RegExp(elCirculo.title, "i");
+      const expectedElCirculoTitle = new RegExp(elCirculoNotOwned.title, "i");
 
       render(<VinylsList vinyls={vinylsTestData} />);
 
