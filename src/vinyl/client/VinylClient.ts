@@ -1,5 +1,7 @@
-import { mapVinylsDtoToVinyls } from "../dto/mapper";
+import type { Vinyl } from "../../types";
+import { mapVinylDtotoVinyl, mapVinylsDtoToVinyls } from "../dto/mapper";
 import type {
+  ResponseVinylDto,
   VinylClientStructure,
   VinylsCollectionData,
   VinylsDtoCollectionData,
@@ -32,6 +34,23 @@ class VinylClient implements VinylClientStructure {
     };
 
     return vinylsCollectionData;
+  };
+
+  public getVinylUpdate = async (vinylId: string): Promise<Vinyl> => {
+    const response = await fetch(
+      `${this.apiUrl}/vinyls/toggleOwner/${vinylId}`,
+      { method: "PATCH", headers: { "Content-Type": "application/json" } },
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to change the isOwned property of vinyl");
+    }
+
+    const { vinyl } = (await response.json()) as ResponseVinylDto;
+
+    const vinylUpdate = mapVinylDtotoVinyl(vinyl);
+
+    return vinylUpdate;
   };
 }
 

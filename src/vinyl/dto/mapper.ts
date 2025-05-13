@@ -9,3 +9,7 @@ export const mapVinylsDtoToVinyls = (vinylsDto: VinylDto[]): Vinyl[] => {
 
   return vinyls;
 };
+
+export const mapVinylDtotoVinyl = ({ _id, ...vinylDto }: VinylDto): Vinyl => {
+  return { ...vinylDto, id: _id };
+};
