@@ -3,6 +3,7 @@ import type { VinylDto } from "../dto/types";
 
 export interface VinylClientStructure {
   getVinyls: (pageNumber?: number) => Promise<VinylsCollectionData>;
+  getVinylUpdate: (vinylId: string) => Promise<Vinyl>;
 }
 
 export interface VinylsCollectionData {
@@ -13,4 +14,8 @@ export interface VinylsCollectionData {
 export interface VinylsDtoCollectionData {
   vinyls: VinylDto[];
   vinylsTotal: number;
+}
+
+export interface ResponseVinylDto {
+  vinyl: VinylDto;
 }

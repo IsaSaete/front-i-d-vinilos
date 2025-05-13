@@ -74,7 +74,7 @@ export const fromDeewee: VinylDto = {
   isOwned: true,
 };
 
-export const minimalNation: VinylDto = {
+export const minimalNationDto: VinylDto = {
   _id: "64f9e15c8f3f1b2a4cde1a06",
   title: "Minimal Nation",
   artist: "Robert Hood",
@@ -198,7 +198,7 @@ export const vinylsFixturesDto: VinylDto[] = [
   spiritOfEden,
   inColour,
   fromDeewee,
-  minimalNation,
+  minimalNationDto,
   hissingOfSummerLawns,
   rispah,
   innocenceAndDecadence,
@@ -207,3 +207,19 @@ export const vinylsFixturesDto: VinylDto[] = [
   internalEmpire,
   weStillBelieve,
 ];
+
+export const elCirculoDto: VinylDto = {
+  _id: "14fbf39d8c9d1e4dabc5f1e2",
+  title: "El Círculo",
+  artist: "Kase.O",
+  country: "España",
+  releaseDate: "2016-03-11",
+  genre: "Hip Hop",
+  format: "Vinilo",
+  coverImageUrl: "https://example.com/el-circulo-kaseo.jpg",
+  styles: ["Rap", "Hip Hop", "Lírico"],
+  purchasedAt: "2024-05-09",
+  notes:
+    "Uno de los discos más importantes del rap español, 'El Círculo' muestra la madurez lírica y artística de Kase.O.",
+  isOwned: true,
+};
