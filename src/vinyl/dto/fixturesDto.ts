@@ -223,3 +223,5 @@ export const elCirculoDto: VinylDto = {
     "Uno de los discos más importantes del rap español, 'El Círculo' muestra la madurez lírica y artística de Kase.O.",
   isOwned: true,
 };
+
+export const vinylsFixturesDto2 = [elCirculoDto];
