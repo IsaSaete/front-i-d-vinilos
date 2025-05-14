@@ -2,7 +2,10 @@ import { useDispatch } from "react-redux";
 import { useCallback, useMemo } from "react";
 import { useAppSelector } from "../../app/hooks";
 import VinylClient from "../client/VinylClient";
-import { loadVinylActionCreator } from "../slice/vinylSlice";
+import {
+  loadVinylActionCreator,
+  toggleVinylOwnedCreator,
+} from "../slice/vinylSlice";
 
 const useVinyls = () => {
   const vinylCollection = useAppSelector(
@@ -21,7 +24,13 @@ const useVinyls = () => {
     [vinylClient, dispatch],
   );
 
-  return { vinylCollection, loadVinylsByPage };
+  const updateVinylByOwned = async (vinylId: string): Promise<void> => {
+    const updatedVinyl = await vinylClient.toggleIsOwnedVinyl(vinylId);
+
+    dispatch(toggleVinylOwnedCreator(updatedVinyl));
+  };
+
+  return { vinylCollection, loadVinylsByPage, updateVinylByOwned };
 };
 
 export default useVinyls;
