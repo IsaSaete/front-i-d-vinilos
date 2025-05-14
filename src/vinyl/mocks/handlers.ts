@@ -22,13 +22,13 @@ export const handlers = [
     });
   }),
 
-  http.patch(`${apiUrl}/vinyls/toggleOwner/${minimalNation.id}`, () => {
+  http.patch(`${apiUrl}/vinyls/toggle-owned/${minimalNation.id}`, () => {
     return HttpResponse.json<{ vinyl: VinylDto }>({
       vinyl: { ...minimalNationDto, isOwned: false },
     });
   }),
 
-  http.patch(`${apiUrl}/vinyls/toggleOwner/${elCirculoNotOwned.id}`, () => {
+  http.patch(`${apiUrl}/vinyls/toggle-owned/${elCirculoNotOwned.id}`, () => {
     return HttpResponse.json<{ vinyl: VinylDto }>({
       vinyl: { ...elCirculoDto, isOwned: true },
     });

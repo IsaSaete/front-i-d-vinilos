@@ -14,7 +14,7 @@ describe("Given the getVinylUpdate method of VinylClietn", () => {
     test("Then it should return Minimal Nation that is not in the collection", async () => {
       const vinylClient = new VinylClient();
 
-      const vinylUpdate = await vinylClient.getVinylUpdate(
+      const vinylUpdate = await vinylClient.toggleIsOwnedVinyl(
         minimalNationDto._id,
       );
 
@@ -26,7 +26,7 @@ describe("Given the getVinylUpdate method of VinylClietn", () => {
     test("Then it should return El Círculo that is in the collection", async () => {
       const vinylClient = new VinylClient();
 
-      const vinylUpdate = await vinylClient.getVinylUpdate(
+      const vinylUpdate = await vinylClient.toggleIsOwnedVinyl(
         elCirculoNotOwned.id,
       );
 
@@ -43,7 +43,7 @@ describe("Given the getVinylUpdate method of VinylClietn", () => {
 
       server.use(
         http.patch(
-          `${apiUrl}/vinyls/toggleOwner/${aquellosOjosVerdes.id}`,
+          `${apiUrl}/vinyls/toggle-owned/${aquellosOjosVerdes.id}`,
           () => {
             return new HttpResponse(null, { status: 500 });
           },
@@ -52,7 +52,7 @@ describe("Given the getVinylUpdate method of VinylClietn", () => {
 
       const vinylClient = new VinylClient();
 
-      const vinylUpdate = vinylClient.getVinylUpdate(aquellosOjosVerdes.id);
+      const vinylUpdate = vinylClient.toggleIsOwnedVinyl(aquellosOjosVerdes.id);
 
       await expect(vinylUpdate).rejects.toThrow(expectedErrorMessage);
     });

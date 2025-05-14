@@ -3,7 +3,7 @@ import type { VinylDto } from "../dto/types";
 
 export interface VinylClientStructure {
   getVinyls: (pageNumber?: number) => Promise<VinylsCollectionData>;
-  getVinylUpdate: (vinylId: string) => Promise<Vinyl>;
+  toggleIsOwnedVinyl: (vinylId: string) => Promise<Vinyl>;
 }
 
 export interface VinylsCollectionData {
