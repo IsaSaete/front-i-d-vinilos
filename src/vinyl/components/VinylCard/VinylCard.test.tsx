@@ -1,13 +1,19 @@
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 import VinylCard from "./VinylCard";
 import { aquellosOjosVerdes } from "../../fixtures";
+import store from "../../../app/store";
 
 describe("Given the VinylCard component", () => {
   describe("When it receives Aquellos Ojos Verdes vinyl", () => {
     test("Then it should show 'Aquellos Ojos Verdes' inside a heading", () => {
       const expectedVinylTitle = new RegExp(aquellosOjosVerdes.title, "i");
 
-      render(<VinylCard vinyl={aquellosOjosVerdes} index={0} />);
+      render(
+        <Provider store={store}>
+          <VinylCard vinyl={aquellosOjosVerdes} index={0} />
+        </Provider>,
+      );
 
       const vinylTitle = screen.getByRole("heading", {
         name: expectedVinylTitle,
@@ -19,7 +25,11 @@ describe("Given the VinylCard component", () => {
     test("Then it should show 'Carlos Gardel' inside a heading", () => {
       const expectedVinylArtist = new RegExp(aquellosOjosVerdes.artist, "i");
 
-      render(<VinylCard vinyl={aquellosOjosVerdes} index={0} />);
+      render(
+        <Provider store={store}>
+          <VinylCard vinyl={aquellosOjosVerdes} index={0} />
+        </Provider>,
+      );
 
       const vinylArtist = screen.getByRole("heading", {
         name: expectedVinylArtist,
@@ -31,11 +41,31 @@ describe("Given the VinylCard component", () => {
     test("Then it should show the image of the vinyl cover Aquellos ojos verdes", () => {
       const expectedImageAlt = /vinilo Aquellos Ojos Verdes de Carlos Gardel/i;
 
-      render(<VinylCard vinyl={aquellosOjosVerdes} index={0} />);
+      render(
+        <Provider store={store}>
+          <VinylCard vinyl={aquellosOjosVerdes} index={0} />
+        </Provider>,
+      );
 
       const vinylImage = screen.getByAltText(expectedImageAlt);
 
       expect(vinylImage).toBeInTheDocument();
+    });
+
+    describe("And this vinyl it is in my collection", () => {
+      test("Then it should show a 'Quitar de mi colección' inside a button", () => {
+        const expectedButtonText = /quitar de mi colección/i;
+
+        render(
+          <Provider store={store}>
+            <VinylCard vinyl={aquellosOjosVerdes} index={0} />
+          </Provider>,
+        );
+
+        const button = screen.getByRole("button", { name: expectedButtonText });
+
+        expect(button).toBeInTheDocument();
+      });
     });
   });
 });
