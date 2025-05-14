@@ -3,6 +3,7 @@ import {
   elCirculoDto,
   minimalNationDto,
   vinylsFixturesDto,
+  vinylsFixturesDto2,
   weStillBelieve,
 } from "../dto/fixturesDto";
 import type { VinylsDtoCollectionData } from "../client/types";
@@ -20,7 +21,17 @@ if (!apiUrl) {
 }
 
 export const handlers = [
-  http.get(`${apiUrl}/vinyls`, () => {
+  http.get(`${apiUrl}/vinyls`, ({ request }) => {
+    const url = new URL(request.url);
+    const currentPage = url.searchParams.get("page");
+
+    if (currentPage === "2") {
+      return HttpResponse.json<VinylsDtoCollectionData>({
+        vinyls: vinylsFixturesDto2,
+        vinylsTotal: vinylsFixturesDto2.length,
+      });
+    }
+
     return HttpResponse.json<VinylsDtoCollectionData>({
       vinyls: vinylsFixturesDto,
       vinylsTotal: vinylsFixturesDto.length,
