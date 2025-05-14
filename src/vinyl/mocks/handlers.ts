@@ -3,10 +3,15 @@ import {
   elCirculoDto,
   minimalNationDto,
   vinylsFixturesDto,
+  weStillBelieve,
 } from "../dto/fixturesDto";
 import type { VinylsDtoCollectionData } from "../client/types";
 import type { VinylDto } from "../dto/types";
-import { elCirculoNotOwned, minimalNation } from "../fixtures";
+import {
+  elCirculoNotOwned,
+  minimalNation,
+  weStillBelieveNotOwned,
+} from "../fixtures";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -33,4 +38,13 @@ export const handlers = [
       vinyl: { ...elCirculoDto, isOwned: true },
     });
   }),
+
+  http.patch(
+    `${apiUrl}/vinyls/toggle-owned/${weStillBelieveNotOwned.id}`,
+    () => {
+      return HttpResponse.json<{ vinyl: VinylDto }>({
+        vinyl: { ...weStillBelieve, isOwned: true },
+      });
+    },
+  ),
 ];
