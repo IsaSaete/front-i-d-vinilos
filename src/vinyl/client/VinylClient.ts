@@ -36,9 +36,9 @@ class VinylClient implements VinylClientStructure {
     return vinylsCollectionData;
   };
 
-  public getVinylUpdate = async (vinylId: string): Promise<Vinyl> => {
+  public toggleIsOwnedVinyl = async (vinylId: string): Promise<Vinyl> => {
     const response = await fetch(
-      `${this.apiUrl}/vinyls/toggleOwner/${vinylId}`,
+      `${this.apiUrl}/vinyls/toggle-owned/${vinylId}`,
       { method: "PATCH", headers: { "Content-Type": "application/json" } },
     );
 
