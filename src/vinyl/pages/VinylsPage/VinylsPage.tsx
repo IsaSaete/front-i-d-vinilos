@@ -4,6 +4,7 @@ import useVinyls from "../../hooks/useVinyls";
 import Loader from "../../components/Loader/Loader";
 import "./VinylsPage.css";
 import VinylsList from "../../components/VinylsList/VinylsList";
+import Pagination from "../../../components/Pagination/Pagination";
 
 const VinylsPage: React.FC = () => {
   const { vinylCollection, loadVinylsByPage } = useVinyls();
@@ -14,6 +15,8 @@ const VinylsPage: React.FC = () => {
     : 1;
 
   useEffect(() => {
+    window.scrollTo({ top: 0 });
+
     loadVinylsByPage(pageNumber);
   }, [pageNumber, loadVinylsByPage]);
 
@@ -35,6 +38,7 @@ const VinylsPage: React.FC = () => {
         </span>
       </header>
       <VinylsList vinyls={vinyls} />
+      <Pagination vinylsTotal={vinylsTotal} currentPage={pageNumber} />
     </>
   );
 };
