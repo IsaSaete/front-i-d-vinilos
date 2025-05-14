@@ -1,4 +1,5 @@
 import { Provider } from "react-redux";
+import { act, renderHook } from "@testing-library/react";
 import setupStore from "../../../app/setupStore";
 import {
   aquellosOjosVerdes,
@@ -6,7 +7,6 @@ import {
   weStillBelieveNotOwned,
 } from "../../fixtures";
 import type { VinylState } from "../../slice/types";
-import { act, renderHook } from "@testing-library/react";
 import useVinyls from "../useVinyls";
 
 describe("Given the updateVinylByOwned function", () => {
