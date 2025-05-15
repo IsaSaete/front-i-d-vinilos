@@ -224,4 +224,20 @@ export const elCirculoDto: VinylDto = {
   isOwned: true,
 };
 
+export const aquellosOjosVerdesDto: VinylDto = {
+  _id: "14fbf39d8c9d1e4dabc5f1e1",
+  title: "Aquellos Ojos Verdes",
+  artist: "Carlos Gardel",
+  country: "Argentina",
+  releaseDate: "1935-01-01",
+  genre: "Tango",
+  format: "Vinilo",
+  coverImageUrl: "https://example.com/aquellos-ojos-verdes.jpg",
+  styles: ["Tango", "Ranchera"],
+  purchasedAt: "2024-05-10",
+  notes:
+    "Un clásico eterno del tango argentino. El vinilo ofrece una calidad sonora que remite a la época dorada del tango.",
+  isOwned: true,
+};
+
 export const vinylsFixturesDto2 = [elCirculoDto];

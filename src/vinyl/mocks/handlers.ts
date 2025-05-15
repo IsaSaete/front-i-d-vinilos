@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
 import {
+  aquellosOjosVerdesDto,
   elCirculoDto,
   minimalNationDto,
   vinylsFixturesDto,
@@ -9,6 +10,7 @@ import {
 import type { VinylsDtoCollectionData } from "../client/types";
 import type { VinylDto } from "../dto/types";
 import {
+  aquellosOjosVerdes,
   elCirculoNotOwned,
   minimalNation,
   weStillBelieveNotOwned,
@@ -58,4 +60,10 @@ export const handlers = [
       });
     },
   ),
+
+  http.delete(`${apiUrl}/vinyls/${aquellosOjosVerdes.id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: aquellosOjosVerdesDto,
+    });
+  }),
 ];

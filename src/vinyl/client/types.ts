@@ -4,6 +4,7 @@ import type { VinylDto } from "../dto/types";
 export interface VinylClientStructure {
   getVinyls: (pageNumber?: number) => Promise<VinylsCollectionData>;
   toggleIsOwnedVinyl: (vinylId: string) => Promise<Vinyl>;
+  deleteVinyl: (vinylId: string) => Promise<Vinyl>;
 }
 
 export interface VinylsCollectionData {
