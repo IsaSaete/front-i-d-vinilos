@@ -20,21 +20,20 @@ const VinylsPage: React.FC = () => {
     loadVinylsByPage(pageNumber);
   }, [pageNumber, loadVinylsByPage]);
 
-  const vinylsTotal = vinylCollection.vinylsTotal;
-  const VinylsByPage = vinylCollection.vinyls.length;
-
   if (vinylCollection.vinylsTotal === 0) {
     return <Loader />;
   }
 
-  const vinyls = vinylCollection.vinyls;
+  const { vinyls, vinylsTotal } = vinylCollection;
+
+  const vinylsByPage = vinyls.length;
 
   return (
     <>
       <header className="header-content">
         <h1 className="page-title">Vinilos</h1>
         <span className="page-counter">
-          {VinylsByPage}/{vinylsTotal}
+          {vinylsByPage}/{vinylsTotal}
         </span>
       </header>
       <VinylsList vinyls={vinyls} />

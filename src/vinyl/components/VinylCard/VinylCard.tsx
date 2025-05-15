@@ -37,13 +37,15 @@ const VinylCard: React.FC<VinylCardProps> = ({
           loading={loadingType}
         />
 
-        <img
-          className={`vinyl__owned-icon ${isOwned ? "vinyl__owned-icon--visible" : ""}`}
-          src="/vinilo-coleccion.svg"
-          alt="Vinilo"
-          width={50}
-          height={50}
-        />
+        {isOwned && (
+          <img
+            className="vinyl__owned-icon"
+            src="/vinilo-coleccion.svg"
+            alt="Vinilo en tu colección"
+            width={50}
+            height={50}
+          />
+        )}
       </div>
       <div className="vinyl__info">
         <h2 className="vinyl__title">{title}</h2>

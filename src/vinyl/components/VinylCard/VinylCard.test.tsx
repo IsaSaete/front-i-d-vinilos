@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import VinylCard from "./VinylCard";
-import { aquellosOjosVerdes } from "../../fixtures";
+import { aquellosOjosVerdes, elCirculoNotOwned } from "../../fixtures";
 import store from "../../../app/store";
 
 describe("Given the VinylCard component", () => {
@@ -66,6 +66,50 @@ describe("Given the VinylCard component", () => {
 
         expect(button).toBeInTheDocument();
       });
+
+      test("Then it should show an image of vinyl icon", () => {
+        const expectedAltText = /vinilo en tu colección/i;
+
+        render(
+          <Provider store={store}>
+            <VinylCard vinyl={aquellosOjosVerdes} index={0} />
+          </Provider>,
+        );
+
+        const image = screen.getByAltText(expectedAltText);
+
+        expect(image).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe("When it receives a El Círculo vinyl and it is not in the colecction", () => {
+    test("Then it should show a 'Añadir a mi colección' inside a button", () => {
+      const expectedButtonText = /añadir a mi colección/i;
+
+      render(
+        <Provider store={store}>
+          <VinylCard vinyl={elCirculoNotOwned} index={0} />
+        </Provider>,
+      );
+
+      const button = screen.getByRole("button", { name: expectedButtonText });
+
+      expect(button).toBeInTheDocument();
+    });
+
+    test("Then it shouldn't show an image of vinyl icon", () => {
+      const expectedAltText = /vinilo en tu colección/i;
+
+      render(
+        <Provider store={store}>
+          <VinylCard vinyl={elCirculoNotOwned} index={0} />
+        </Provider>,
+      );
+
+      const image = screen.queryByAltText(expectedAltText);
+
+      expect(image).not.toBeInTheDocument();
     });
   });
 });
