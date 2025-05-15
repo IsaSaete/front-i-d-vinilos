@@ -52,6 +52,23 @@ class VinylClient implements VinylClientStructure {
 
     return vinylUpdate;
   };
+
+  public deleteVinyl = async (vinylId: string): Promise<Vinyl> => {
+    const response = await fetch(`${this.apiUrl}/vinyls/${vinylId}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (!response) {
+      throw new Error("Error deleting vinyl");
+    }
+
+    const { vinyl } = (await response.json()) as ResponseVinylDto;
+
+    const vinylDelete = mapVinylDtotoVinyl(vinyl);
+
+    return vinylDelete;
+  };
 }
 
 export default VinylClient;
