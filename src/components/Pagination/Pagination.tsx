@@ -10,7 +10,8 @@ const Pagination: React.FC<PaginationProps> = ({
   vinylsTotal,
   currentPage,
 }) => {
-  const pagesTotal = Math.ceil(vinylsTotal / 6);
+  const vinylsByPage = 6;
+  const pagesTotal = Math.ceil(vinylsTotal / vinylsByPage);
   const previosPage = currentPage - 1;
   const nextPage = currentPage + 1;
 
