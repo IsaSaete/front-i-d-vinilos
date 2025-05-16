@@ -7,7 +7,7 @@ import VinylsList from "../../components/VinylsList/VinylsList";
 import Pagination from "../../../components/Pagination/Pagination";
 
 const VinylsPage: React.FC = () => {
-  const { vinylCollection, loadVinylsByPage } = useVinyls();
+  const { vinylCollection, loadVinylsByPage, isLoading } = useVinyls();
   const [searchParams] = useSearchParams();
 
   const pageNumber = searchParams.get("page")
@@ -20,7 +20,7 @@ const VinylsPage: React.FC = () => {
     loadVinylsByPage(pageNumber);
   }, [pageNumber, loadVinylsByPage]);
 
-  if (vinylCollection.vinylsTotal === 0) {
+  if (isLoading) {
     return <Loader />;
   }
 

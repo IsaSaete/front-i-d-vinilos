@@ -12,6 +12,8 @@ const useVinyls = () => {
   const vinylCollection = useAppSelector(
     (state) => state.vinyls.vinylCollection,
   );
+  const isLoading = useAppSelector((state) => state.vinyls.isloading);
+
   const dispatch = useDispatch();
 
   const vinylClient = useMemo(() => new VinylClient(), []);
@@ -38,6 +40,7 @@ const useVinyls = () => {
   };
 
   return {
+    isLoading,
     vinylCollection,
     loadVinylsByPage,
     updateVinylByOwned,
