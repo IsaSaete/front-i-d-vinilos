@@ -12,7 +12,7 @@ const useVinyls = () => {
   const vinylCollection = useAppSelector(
     (state) => state.vinyls.vinylCollection,
   );
-  const isLoading = useAppSelector((state) => state.vinyls.isloading);
+  const isLoading = useAppSelector((state) => state.vinyls.isLoading);
 
   const dispatch = useDispatch();
 

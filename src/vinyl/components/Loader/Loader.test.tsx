@@ -14,5 +14,15 @@ describe("Given the Loader component", () => {
 
       expect(pageTitle).toBeInTheDocument();
     });
+
+    test("Then it should an image of record is playing", async () => {
+      const expectedImageText = /vinilo girando/i;
+
+      render(<Loader />);
+
+      const imageVinyl = await screen.findByAltText(expectedImageText);
+
+      expect(imageVinyl).toBeInTheDocument();
+    });
   });
 });

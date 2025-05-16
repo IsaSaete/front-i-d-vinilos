@@ -17,7 +17,7 @@ describe("Given the updateVinylByOwned function", () => {
           vinyls: [weStillBelieveNotOwned, aquellosOjosVerdes],
           vinylsTotal: 2,
         },
-        isloading: false,
+        isLoading: false,
       };
 
       const store = setupStore({ vinyls: initialState });
