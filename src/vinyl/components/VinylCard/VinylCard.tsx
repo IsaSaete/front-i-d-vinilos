@@ -51,7 +51,7 @@ const VinylCard: React.FC<VinylCardProps> = ({
         {isOwned && (
           <img
             className="vinyl__owned-icon"
-            src="/vinilo-coleccion.svg"
+            src="/vinyl-icon.svg"
             alt="Vinilo en tu colección"
             width={50}
             height={50}
