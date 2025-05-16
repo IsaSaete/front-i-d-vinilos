@@ -52,6 +52,20 @@ describe("Given the VinylCard component", () => {
       expect(vinylImage).toBeInTheDocument();
     });
 
+    test("Then it should show a 'X' inside a button", () => {
+      const expectedButtonText = /eliminar vinilo/i;
+
+      render(
+        <Provider store={store}>
+          <VinylCard vinyl={aquellosOjosVerdes} index={0} />
+        </Provider>,
+      );
+
+      const deleteButton = screen.getByLabelText(expectedButtonText);
+
+      expect(deleteButton).toBeVisible();
+    });
+
     describe("And this vinyl it is in my collection", () => {
       test("Then it should show a 'Quitar de mi colección' inside a button", () => {
         const expectedButtonText = /quitar de mi colección/i;
