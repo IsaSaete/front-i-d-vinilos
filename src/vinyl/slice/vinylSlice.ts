@@ -35,12 +35,24 @@ const vinylSlice = createSlice({
         },
       };
     },
+
+    deleteVinyl: (currentState, action: PayloadAction<string>): VinylState => {
+      return {
+        vinylCollection: {
+          ...currentState.vinylCollection,
+          vinyls: currentState.vinylCollection.vinyls.filter(
+            (vinyl) => vinyl.id !== action.payload,
+          ),
+        },
+      };
+    },
   },
 });
 
 export const {
   loadVinyls: loadVinylActionCreator,
   toggleOwnedVinyl: toggleVinylOwnedCreator,
+  deleteVinyl: deleteVinylCreator,
 } = vinylSlice.actions;
 
 export const vinylReducer = vinylSlice.reducer;
