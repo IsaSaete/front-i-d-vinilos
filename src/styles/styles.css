@@ -1,7 +1,7 @@
 :root {
   --main-color: #304b5f;
   --secondary-color: #fafafa;
-  --backgroundCard-color: #929fa9b9;
+  --backgroundCard-color: #929fa97b;
 }
 
 *,
@@ -46,4 +46,6 @@ button {
   background: none;
   border: none;
   padding: 0;
+  cursor: pointer;
+  font: inherit;
 }
