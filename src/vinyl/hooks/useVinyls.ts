@@ -3,6 +3,7 @@ import { useCallback, useMemo } from "react";
 import { useAppSelector } from "../../app/hooks";
 import VinylClient from "../client/VinylClient";
 import {
+  deleteVinylCreator,
   loadVinylActionCreator,
   toggleVinylOwnedCreator,
 } from "../slice/vinylSlice";
@@ -30,7 +31,18 @@ const useVinyls = () => {
     dispatch(toggleVinylOwnedCreator(updatedVinyl));
   };
 
-  return { vinylCollection, loadVinylsByPage, updateVinylByOwned };
+  const deleteVinylById = async (vinylId: string): Promise<void> => {
+    const deletedVinyl = await vinylClient.deleteVinyl(vinylId);
+
+    dispatch(deleteVinylCreator(deletedVinyl.id));
+  };
+
+  return {
+    vinylCollection,
+    loadVinylsByPage,
+    updateVinylByOwned,
+    deleteVinylById,
+  };
 };
 
 export default useVinyls;
