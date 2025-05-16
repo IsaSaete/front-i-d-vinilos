@@ -3,9 +3,11 @@ import {
   aquellosOjosVerdesDto,
   elCirculoDto,
   minimalNationDto,
+  strangeWeather,
   vinylsFixturesDto,
   vinylsFixturesDto2,
   weStillBelieve,
+  weStillBelieveNotOwnedDto,
 } from "../dto/fixturesDto";
 import type { VinylsDtoCollectionData } from "../client/types";
 import type { VinylDto } from "../dto/types";
@@ -13,7 +15,6 @@ import {
   aquellosOjosVerdes,
   elCirculoNotOwned,
   minimalNation,
-  weStillBelieveNotOwned,
 } from "../fixtures";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -52,18 +53,19 @@ export const handlers = [
     });
   }),
 
-  http.patch(
-    `${apiUrl}/vinyls/toggle-owned/${weStillBelieveNotOwned.id}`,
-    () => {
-      return HttpResponse.json<{ vinyl: VinylDto }>({
-        vinyl: { ...weStillBelieve, isOwned: true },
-      });
-    },
-  ),
+  http.patch(`${apiUrl}/vinyls/toggle-owned/${weStillBelieve._id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: { ...weStillBelieveNotOwnedDto, isOwned: true },
+    });
+  }),
 
   http.delete(`${apiUrl}/vinyls/${aquellosOjosVerdes.id}`, () => {
     return HttpResponse.json<{ vinyl: VinylDto }>({
       vinyl: aquellosOjosVerdesDto,
     });
+  }),
+
+  http.delete(`${apiUrl}/vinyls/${strangeWeather._id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({ vinyl: strangeWeather });
   }),
 ];

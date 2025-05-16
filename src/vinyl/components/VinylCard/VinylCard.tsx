@@ -15,10 +15,14 @@ const VinylCard: React.FC<VinylCardProps> = ({
 }) => {
   const loadingType = index <= 1 ? "eager" : "lazy";
 
-  const { updateVinylByOwned } = useVinyls();
+  const { updateVinylByOwned, deleteVinylById } = useVinyls();
 
   const toggleisOwned = () => {
     updateVinylByOwned(id);
+  };
+
+  const deletedVinyl = () => {
+    deleteVinylById(id);
   };
 
   const collectionOwner = isOwned
@@ -28,6 +32,13 @@ const VinylCard: React.FC<VinylCardProps> = ({
   return (
     <article className="vinyl">
       <div className="image-container">
+        <Button
+          classNameModifier="delete"
+          action={deletedVinyl}
+          aria-label="Eliminar vinilo"
+        >
+          x
+        </Button>
         <img
           className="vinyl__image"
           src={coverImageUrl}
@@ -51,7 +62,11 @@ const VinylCard: React.FC<VinylCardProps> = ({
         <h2 className="vinyl__title">{title}</h2>
         <h3 className="vinyl__artist">{artist}</h3>
       </div>
-      <Button action={toggleisOwned} classNameModifier="collection">
+      <Button
+        action={toggleisOwned}
+        classNameModifier="collection"
+        aria-label={collectionOwner}
+      >
         {collectionOwner}
       </Button>
     </article>
