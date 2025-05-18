@@ -5,3 +5,7 @@ export const LazyVinylsPage = lazy(
 );
 
 export const LazyNotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
+
+export const LazyAddVinylPage = lazy(
+  () => import("../../vinyl/pages/AddVinylPage/AddVinylPage"),
+);

@@ -49,3 +49,13 @@ button {
   cursor: pointer;
   font: inherit;
 }
+
+input,
+textarea,
+select {
+  border: none;
+  font: inherit;
+  background: none;
+  padding: 0;
+  resize: none;
+}
