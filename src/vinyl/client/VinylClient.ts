@@ -1,4 +1,4 @@
-import type { Vinyl } from "../../types";
+import type { Vinyl, VinylSendFormData } from "../../types";
 import { mapVinylDtotoVinyl, mapVinylsDtoToVinyls } from "../dto/mapper";
 import type {
   ResponseVinylDto,
@@ -68,6 +68,25 @@ class VinylClient implements VinylClientStructure {
     const vinylDelete = mapVinylDtotoVinyl(vinyl);
 
     return vinylDelete;
+  };
+
+  public addVinyl = async (
+    vinylFormData: VinylSendFormData,
+  ): Promise<Vinyl> => {
+    const response = await fetch(`${this.apiUrl}/vinyls`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(vinylFormData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Error adding new vinyl");
+    }
+    const { vinyl } = (await response.json()) as ResponseVinylDto;
+
+    const newVinyl = mapVinylDtotoVinyl(vinyl);
+
+    return newVinyl;
   };
 }
 
