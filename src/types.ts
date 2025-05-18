@@ -12,3 +12,5 @@ export interface Vinyl {
   notes?: string;
   isOwned: boolean;
 }
+
+export type VinylFormData = Omit<Vinyl, "id" | "styles"> & { styles: string };

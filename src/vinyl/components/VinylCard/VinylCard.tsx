@@ -43,8 +43,8 @@ const VinylCard: React.FC<VinylCardProps> = ({
           className="vinyl__image"
           src={coverImageUrl}
           alt={`Vinilo ${title} de ${artist}`}
-          width={380}
-          height={300}
+          width={400}
+          height={263}
           loading={loadingType}
         />
 
