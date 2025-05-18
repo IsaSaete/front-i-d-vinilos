@@ -1,11 +1,11 @@
 import { Outlet } from "react-router";
-import Header from "../Header/Header";
+import { LazyHeader } from "../../router/Components/LazyLoader";
 import "./Layout.css";
 
 const Layout: React.FC = () => {
   return (
     <div className="main-container">
-      <Header />
+      <LazyHeader />
       <main className="page-container">
         <Outlet />
       </main>
