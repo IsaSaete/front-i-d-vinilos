@@ -28,7 +28,6 @@
 }
 
 .image-container {
-  min-height: 330px;
   background-color: var(--secondary-color);
   padding: 30px 10px;
   border-radius: 6px;
@@ -52,6 +51,7 @@
   padding: 12px 0px;
   width: 100%;
   margin-top: 35px;
+  font-size: clamp(1.2rem, 5vw, 1.875rem);
 }
 
 .vinyl__owned-icon {
