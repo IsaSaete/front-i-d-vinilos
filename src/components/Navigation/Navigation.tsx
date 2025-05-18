@@ -3,9 +3,12 @@ import "./Navigation.css";
 
 const Navigation: React.FC = () => {
   return (
-    <nav>
+    <nav className="navigation">
       <NavLink className="navigation__link" to="/vinilos">
         Listado
+      </NavLink>
+      <NavLink className="navigation__link" to="/añadir-vinilo">
+        Añadir
       </NavLink>
     </nav>
   );
