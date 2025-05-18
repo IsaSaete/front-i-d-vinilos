@@ -8,12 +8,12 @@ import AppTestRouter from "../../router/AppTestRouter";
 
 describe("Given the Layout component", () => {
   describe("When it renders", () => {
-    test("Then it should show a logo that says 'VINILOS'", () => {
+    test("Then it should show a logo that says 'VINILOS'", async () => {
       render(<Layout />, { wrapper: MemoryRouter });
 
       const expectedAltTextImage = /vinilos/i;
 
-      const image = screen.getByAltText(expectedAltTextImage);
+      const image = await screen.findByAltText(expectedAltTextImage);
 
       expect(image).toBeInTheDocument();
     });
