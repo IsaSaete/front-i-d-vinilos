@@ -19,7 +19,7 @@ describe("Given the deleteVinyl method of VinylClient", () => {
   });
 
   describe("When it's called and the server responds with an error", () => {
-    test("Then it should throw an error with message 'Error deleting vinyl'", async () => {
+    test("Then it should throw an error with message 'Error deleting vinyl'", () => {
       const expectedErrorMessage = "Error deleting vinyl";
 
       const apiUrl = import.meta.env.VITE_API_URL;
@@ -34,7 +34,7 @@ describe("Given the deleteVinyl method of VinylClient", () => {
 
       const vinylDeleted = vinylClient.deleteVinyl(aquellosOjosVerdes.id);
 
-      await expect(vinylDeleted).rejects.toThrow(expectedErrorMessage);
+      expect(vinylDeleted).rejects.toThrow(expectedErrorMessage);
     });
   });
 });

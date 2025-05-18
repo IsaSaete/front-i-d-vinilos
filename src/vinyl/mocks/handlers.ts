@@ -68,4 +68,10 @@ export const handlers = [
   http.delete(`${apiUrl}/vinyls/${strangeWeather._id}`, () => {
     return HttpResponse.json<{ vinyl: VinylDto }>({ vinyl: strangeWeather });
   }),
+
+  http.post(`${apiUrl}/vinyls`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: weStillBelieveNotOwnedDto,
+    });
+  }),
 ];

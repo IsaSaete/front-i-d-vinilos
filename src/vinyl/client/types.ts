@@ -1,10 +1,11 @@
-import type { Vinyl } from "../../types";
+import type { Vinyl, VinylSendFormData } from "../../types";
 import type { VinylDto } from "../dto/types";
 
 export interface VinylClientStructure {
   getVinyls: (pageNumber?: number) => Promise<VinylsCollectionData>;
   toggleIsOwnedVinyl: (vinylId: string) => Promise<Vinyl>;
   deleteVinyl: (vinylId: string) => Promise<Vinyl>;
+  addVinyl: (vinyl: VinylSendFormData) => Promise<Vinyl>;
 }
 
 export interface VinylsCollectionData {
