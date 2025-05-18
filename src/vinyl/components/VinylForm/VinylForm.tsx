@@ -133,20 +133,22 @@ const VinylForm: React.FC = () => {
             className="vinyl-form__control"
             required
           >
-            <option value="" disabled></option>
+            <option value="" hidden disabled>
+              {}
+            </option>
             <option value={"7''"}>7''</option>
             <option value={"12''"}>12''</option>
           </select>
         </div>
       </div>
       <div className="vinyl-form__group">
-        <label htmlFor="imageUrl" className="vinyl-form__text">
+        <label htmlFor="coverImageUrl" className="vinyl-form__text">
           Imagen URL:
         </label>
         <input
           value={vinylData.coverImageUrl}
           onChange={changeVinylData}
-          id="imageUrl"
+          id="coverImageUrl"
           type="url"
           className="vinyl-form__control"
           required
@@ -154,7 +156,7 @@ const VinylForm: React.FC = () => {
       </div>
       <div className="vinyl-form__group">
         <div className="vinyl-form__optionals">
-          <label htmlFor="style" className="vinyl-form__text">
+          <label htmlFor="styles" className="vinyl-form__text">
             Estilo:
           </label>
           <span>(Campo opcional)</span>
@@ -162,7 +164,7 @@ const VinylForm: React.FC = () => {
         <input
           value={vinylData.styles}
           onChange={changeVinylData}
-          id="style"
+          id="styles"
           type="text"
           className="vinyl-form__control"
         />
@@ -184,7 +186,7 @@ const VinylForm: React.FC = () => {
           className="vinyl-form__control"
         />
       </div>
-      <div className={`vinyl-form__group  vinyl-form__group${opacityClass}`}>
+      <div className={`vinyl-form__group vinyl-form__group${opacityClass}`}>
         <div className="vinyl-form__optionals">
           <label htmlFor="purchasedAt" className="vinyl-form__text">
             Comprado en:
