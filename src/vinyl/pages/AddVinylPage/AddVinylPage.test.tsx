@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import store from "../../../app/store";
 import AddVinylPage from "./AddVinylPage";
+import { MemoryRouter } from "react-router";
 
 describe("Given the AddVinylPage component", () => {
   describe("When it renders", () => {
@@ -11,6 +12,7 @@ describe("Given the AddVinylPage component", () => {
         <Provider store={store}>
           <AddVinylPage />
         </Provider>,
+        { wrapper: MemoryRouter },
       );
 
       const pageTitle = await screen.findByRole("heading", {

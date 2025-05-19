@@ -51,6 +51,15 @@ const vinylSlice = createSlice({
         isLoading: false,
       };
     },
+    addVinyl: (currentState, action: PayloadAction<Vinyl>): VinylState => {
+      return {
+        vinylCollection: {
+          vinyls: [...currentState.vinylCollection.vinyls, action.payload],
+          vinylsTotal: currentState.vinylCollection.vinylsTotal + 1,
+        },
+        isLoading: false,
+      };
+    },
   },
 });
 
@@ -58,6 +67,7 @@ export const {
   loadVinyls: loadVinylActionCreator,
   toggleOwnedVinyl: toggleVinylOwnedCreator,
   deleteVinyl: deleteVinylCreator,
+  addVinyl: addVinylCreator,
 } = vinylSlice.actions;
 
 export const vinylReducer = vinylSlice.reducer;

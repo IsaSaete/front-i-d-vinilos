@@ -76,7 +76,7 @@ class VinylClient implements VinylClientStructure {
     const response = await fetch(`${this.apiUrl}/vinyls`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(vinylFormData),
+      body: JSON.stringify({ vinyl: vinylFormData }),
     });
 
     if (!response.ok) {

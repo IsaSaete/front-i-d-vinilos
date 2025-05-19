@@ -3,10 +3,12 @@ import { useCallback, useMemo } from "react";
 import { useAppSelector } from "../../app/hooks";
 import VinylClient from "../client/VinylClient";
 import {
+  addVinylCreator,
   deleteVinylCreator,
   loadVinylActionCreator,
   toggleVinylOwnedCreator,
 } from "../slice/vinylSlice";
+import type { VinylSendFormData } from "../../types";
 
 const useVinyls = () => {
   const vinylCollection = useAppSelector(
@@ -39,12 +41,19 @@ const useVinyls = () => {
     dispatch(deleteVinylCreator(deletedVinyl.id));
   };
 
+  const addNewVinyl = async (vinyl: VinylSendFormData): Promise<void> => {
+    const addVinyl = await vinylClient.addVinyl(vinyl);
+
+    dispatch(addVinylCreator(addVinyl));
+  };
+
   return {
     isLoading,
     vinylCollection,
     loadVinylsByPage,
     updateVinylByOwned,
     deleteVinylById,
+    addNewVinyl,
   };
 };
 

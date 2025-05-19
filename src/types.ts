@@ -15,4 +15,6 @@ export interface Vinyl {
 
 export type VinylFormData = Omit<Vinyl, "id" | "styles"> & { styles: string };
 
-export type VinylSendFormData = Omit<Vinyl, "id">;
+export type VinylSendFormData = Omit<Vinyl, "id" | "releaseDate"> & {
+  releaseDate: Date;
+};

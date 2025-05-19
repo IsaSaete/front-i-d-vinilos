@@ -16,6 +16,7 @@ export default defineConfig({
         "**/types.ts",
         "vite.config.ts",
         "src/setupTests.ts",
+        "src/router/components/LazyLoader.tsx",
       ],
       provider: "v8",
       reporter: ["text", "html", "clover", "json", "lcov"],
