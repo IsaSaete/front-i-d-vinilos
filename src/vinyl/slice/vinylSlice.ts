@@ -55,7 +55,7 @@ const vinylSlice = createSlice({
       return {
         vinylCollection: {
           vinyls: [...currentState.vinylCollection.vinyls, action.payload],
-          vinylsTotal: currentState.vinylCollection.vinylsTotal,
+          vinylsTotal: currentState.vinylCollection.vinylsTotal + 1,
         },
         isLoading: false,
       };
