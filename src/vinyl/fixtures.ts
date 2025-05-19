@@ -114,7 +114,7 @@ export const weStillBelieveData: VinylSendFormData = {
   title: "We Still Believe",
   artist: "The Blessed Madonna",
   country: "USA",
-  releaseDate: "2016-07-15",
+  releaseDate: new Date("2016-07-15"),
   genre: "Techno",
   format: '12"',
   coverImageUrl: "https://example.com/we-still-believe.jpg",
