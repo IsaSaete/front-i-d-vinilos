@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { LazyHeader } from "../../router/Components/LazyLoader";
+import { LazyHeader } from "../../router/components/LazyLoader";
 import "./Layout.css";
 
 const Layout: React.FC = () => {
