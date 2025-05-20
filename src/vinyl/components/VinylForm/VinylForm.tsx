@@ -60,19 +60,14 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
     vinylData.coverImageUrl !== "";
 
   const navigate = useNavigate();
-  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmitForm = async (
     event: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
     event.preventDefault();
 
-    try {
-      await action(newVinyl);
-      navigate("/");
-    } catch {
-      setErrorMessage("¡Error al crear el post!");
-    }
+    await action(newVinyl);
+    navigate("/");
   };
 
   return (
@@ -87,7 +82,6 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
           id="title"
           type="text"
           className="vinyl-form__control"
-          autoComplete=""
           required
         />
       </div>
@@ -244,9 +238,6 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
           className="vinyl-form__checkbox"
         />
       </div>
-      {errorMessage && (
-        <span className="vinyl-form__error">{errorMessage}</span>
-      )}
       <Button
         classNameModifier="form"
         action={() => {}}
