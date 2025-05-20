@@ -17,6 +17,10 @@
   width: 50px;
   height: 50px;
   animation: rotacion 2s infinite linear;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
 }
 
 @keyframes rotacion {
