@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { vinylReducer } from "../vinyl/slice/vinylSlice";
+import { modalReducer } from "../slices/modalSlice";
 
 const store = configureStore({
-  reducer: { vinyls: vinylReducer },
+  reducer: { vinyls: vinylReducer, modal: modalReducer },
 });
 
 export default store;

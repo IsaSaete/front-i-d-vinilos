@@ -9,8 +9,11 @@ import {
   toggleVinylOwnedCreator,
 } from "../slice/vinylSlice";
 import type { VinylSendFormData } from "../../types";
+import useModal from "../../hooks/useModal";
 
 const useVinyls = () => {
+  const { showModal } = useModal();
+
   const vinylCollection = useAppSelector(
     (state) => state.vinyls.vinylCollection,
   );
@@ -36,9 +39,15 @@ const useVinyls = () => {
   };
 
   const deleteVinylById = async (vinylId: string): Promise<void> => {
-    const deletedVinyl = await vinylClient.deleteVinyl(vinylId);
+    try {
+      const deletedVinyl = await vinylClient.deleteVinyl(vinylId);
 
-    dispatch(deleteVinylCreator(deletedVinyl.id));
+      dispatch(deleteVinylCreator(deletedVinyl.id));
+
+      showModal("Vinilo eliminado", true);
+    } catch {
+      showModal("No se ha podido eliminar este vinilo", false);
+    }
   };
 
   const addNewVinyl = async (vinyl: VinylSendFormData): Promise<void> => {
