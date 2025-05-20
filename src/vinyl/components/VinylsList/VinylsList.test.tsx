@@ -6,7 +6,7 @@ import {
   elCirculoNotOwned,
   vinylsTestData,
 } from "../../fixtures";
-import store from "../../../app/store";
+import store from "../../../store/store";
 
 describe("Given the VinylsList component", () => {
   describe("When it receives a 'Aquellos ojos verdes' & 'El Círculo vinyls' vinyls", () => {

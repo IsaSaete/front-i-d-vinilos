@@ -1,6 +1,6 @@
 import "./NotFoundPage.css";
 
-const NotFoundPAge: React.FC = () => {
+const NotFoundPage: React.FC = () => {
   return (
     <div className="main-content">
       <h1 className="page-title">Página no encontrada</h1>
@@ -14,4 +14,4 @@ const NotFoundPAge: React.FC = () => {
   );
 };
 
-export default NotFoundPAge;
+export default NotFoundPage;

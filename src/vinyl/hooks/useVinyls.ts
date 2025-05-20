@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useCallback, useMemo } from "react";
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector } from "../../store/hooks";
 import VinylClient from "../client/VinylClient";
 import {
   addVinylCreator,

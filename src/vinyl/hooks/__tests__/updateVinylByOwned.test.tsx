@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import { act, renderHook } from "@testing-library/react";
-import setupStore from "../../../app/setupStore";
+import setupStore from "../../../store/setupStore";
 import {
   aquellosOjosVerdes,
   weStillBelieve,

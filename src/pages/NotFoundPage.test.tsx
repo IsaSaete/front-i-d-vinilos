@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import NotFoundPAge from "./NotFoundPage";
+import NotFoundPage from "./NotFoundPage";
 
 describe("Given the NotFoundPage component", () => {
   describe("When it renders", () => {
     test("Then it should show a 'Página no encontrada' inside a heading", () => {
       const expectedTitle = /página no encontrada/i;
 
-      render(<NotFoundPAge />);
+      render(<NotFoundPage />);
 
       const pageTitle = screen.getByRole("heading", {
         name: expectedTitle,
@@ -20,7 +20,7 @@ describe("Given the NotFoundPage component", () => {
       const expectedAltImage =
         "Error 404. El 0 está representado con un vinilo";
 
-      render(<NotFoundPAge />);
+      render(<NotFoundPage />);
 
       const image = screen.getByAltText(expectedAltImage);
 
