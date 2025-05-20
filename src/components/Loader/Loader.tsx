@@ -6,7 +6,7 @@ const Loader: React.FC = () => {
       <h2 className="main-content__title">Cargando</h2>
 
       <img
-        className="loader"
+        className="loader loader"
         src="/vinyl-icon.svg"
         alt="Vinilo girando"
         width={50}
