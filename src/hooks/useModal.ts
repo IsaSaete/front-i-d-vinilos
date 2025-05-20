@@ -16,6 +16,7 @@ const useModal = () => {
     },
     [dispatch],
   );
+
   const closeModal = (): void => {
     dispatch(closeModalCreator());
   };
