@@ -8,3 +8,7 @@ export type OpenModal = {
   isSuccess: boolean;
   text: string;
 };
+
+export type LoadingState = {
+  isLoading: boolean;
+};

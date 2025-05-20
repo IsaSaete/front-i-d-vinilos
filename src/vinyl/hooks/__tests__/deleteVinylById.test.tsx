@@ -15,7 +15,6 @@ describe("Given the deleteVinylById function", () => {
           vinyls: [weStillBelieve, aquellosOjosVerdes],
           vinylsTotal: 2,
         },
-        isLoading: false,
       };
 
       const store = setupStore({ vinyls: initialState });

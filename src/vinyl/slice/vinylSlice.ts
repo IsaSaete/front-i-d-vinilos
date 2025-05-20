@@ -6,16 +6,12 @@ import type { Vinyl } from "../../types";
 
 const initialState: VinylState = {
   vinylCollection: { vinyls: [], vinylsTotal: 0 },
-  isLoading: true,
 };
 
 const vinylSlice = createSlice({
   name: "vinyls",
   initialState,
   reducers: {
-    setLoading: (currentState): void => {
-      currentState.isLoading = true;
-    },
     loadVinyls: (
       currentState,
       { payload: { vinyls, vinylsTotal } }: PayloadAction<VinylsCollectionData>,
@@ -23,7 +19,6 @@ const vinylSlice = createSlice({
       return {
         ...currentState,
         vinylCollection: { vinyls: [...vinyls], vinylsTotal },
-        isLoading: false,
       };
     },
     toggleOwnedVinyl: (
@@ -37,7 +32,6 @@ const vinylSlice = createSlice({
             vinyl.id === action.payload.id ? action.payload : vinyl,
           ),
         },
-        isLoading: false,
       };
     },
     deleteVinyl: (currentState, action: PayloadAction<string>): VinylState => {
@@ -48,7 +42,6 @@ const vinylSlice = createSlice({
             (vinyl) => vinyl.id !== action.payload,
           ),
         },
-        isLoading: false,
       };
     },
     addVinyl: (currentState, action: PayloadAction<Vinyl>): VinylState => {
@@ -57,7 +50,6 @@ const vinylSlice = createSlice({
           vinyls: [...currentState.vinylCollection.vinyls, action.payload],
           vinylsTotal: currentState.vinylCollection.vinylsTotal + 1,
         },
-        isLoading: false,
       };
     },
   },
