@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { vinylReducer } from "../vinyl/slice/vinylSlice";
 
-const store = configureStore({ reducer: { vinyls: vinylReducer } });
+const store = configureStore({
+  reducer: { vinyls: vinylReducer },
+});
 
 export default store;
 

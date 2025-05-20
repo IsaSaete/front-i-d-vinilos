@@ -1,7 +1,7 @@
 import { act, renderHook } from "@testing-library/react";
 import { Provider } from "react-redux";
 import useVinyls from "../useVinyls";
-import store from "../../../app/store";
+import store from "../../../store/store";
 import { vinylsFixturesDto } from "../../dto/fixturesDto";
 
 describe("Given the loadVinylsByPage function", () => {

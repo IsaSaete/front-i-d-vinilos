@@ -3,13 +3,18 @@ import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import Layout from "./Layout";
-import store from "../../app/store";
+import store from "../../store/store";
 import AppTestRouter from "../../router/AppTestRouter";
 
 describe("Given the Layout component", () => {
   describe("When it renders", () => {
     test("Then it should show a logo that says 'VINILOS'", async () => {
-      render(<Layout />, { wrapper: MemoryRouter });
+      render(
+        <Provider store={store}>
+          <Layout />
+        </Provider>,
+        { wrapper: MemoryRouter },
+      );
 
       const expectedAltTextImage = /vinilos/i;
 
@@ -21,7 +26,12 @@ describe("Given the Layout component", () => {
     test("Then it should show a 'Listado' link", () => {
       const expectedLink = /listado/i;
 
-      render(<Layout />, { wrapper: MemoryRouter });
+      render(
+        <Provider store={store}>
+          <Layout />
+        </Provider>,
+        { wrapper: MemoryRouter },
+      );
 
       const listLink = screen.getByRole("link", { name: expectedLink });
 

@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import VinylCard from "./VinylCard";
 import { aquellosOjosVerdes, elCirculoNotOwned } from "../../fixtures";
-import store from "../../../app/store";
+import store from "../../../store/store";
 
 describe("Given the VinylCard component", () => {
   describe("When it receives Aquellos Ojos Verdes vinyl", () => {

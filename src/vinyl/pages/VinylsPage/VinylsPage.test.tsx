@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import VinylsPage from "./VinylsPage";
-import store from "../../../app/store";
+import store from "../../../store/store";
 import { strangeWeather } from "../../dto/fixturesDto";
 
 describe("Given de VinylsPage component", () => {
