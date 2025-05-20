@@ -51,9 +51,15 @@ const useVinyls = () => {
   };
 
   const addNewVinyl = async (vinyl: VinylSendFormData): Promise<void> => {
-    const addVinyl = await vinylClient.addVinyl(vinyl);
+    try {
+      const addVinyl = await vinylClient.addVinyl(vinyl);
 
-    dispatch(addVinylCreator(addVinyl));
+      dispatch(addVinylCreator(addVinyl));
+
+      showModal("Vinilo añadido", true);
+    } catch {
+      showModal("Error al añadir este vinilo", false);
+    }
   };
 
   return {

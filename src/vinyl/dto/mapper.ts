@@ -2,16 +2,16 @@ import type { Vinyl, VinylFormData, VinylSendFormData } from "../../types";
 import type { VinylDto } from "./types";
 
 export const mapVinylsDtoToVinyls = (vinylsDto: VinylDto[]): Vinyl[] => {
-  const vinyls = vinylsDto.map<Vinyl>(({ _id, ...vinylDto }) => ({
-    ...vinylDto,
-    id: _id,
-  }));
+  const vinyls = vinylsDto.map<Vinyl>((vinylDto) =>
+    mapVinylDtotoVinyl(vinylDto),
+  );
 
   return vinyls;
 };
 
 export const mapVinylDtotoVinyl = ({ _id, ...vinylDto }: VinylDto): Vinyl => {
-  return { ...vinylDto, id: _id };
+  const vinyl = { ...vinylDto, id: _id };
+  return vinyl;
 };
 
 export const mapVinylFormDataToVinySend = ({
@@ -27,6 +27,7 @@ export const mapVinylFormDataToVinySend = ({
         .split(" ")
         .filter((style) => style !== "")
     : [];
+
   return {
     ...formData,
     styles: stylesArray,
