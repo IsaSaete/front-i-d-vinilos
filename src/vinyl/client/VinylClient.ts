@@ -88,6 +88,19 @@ class VinylClient implements VinylClientStructure {
 
     return newVinyl;
   };
+
+  public getVinylById = async (vinylId: string): Promise<Vinyl> => {
+    const response = await fetch(`${this.apiUrl}/vinyls/${vinylId}`);
+
+    if (!response.ok) {
+      throw new Error("Error getting this vinyl");
+    }
+    const { vinyl: vinylData } = (await response.json()) as ResponseVinylDto;
+
+    const vinyl = mapVinylDtotoVinyl(vinylData);
+
+    return vinyl;
+  };
 }
 
 export default VinylClient;
