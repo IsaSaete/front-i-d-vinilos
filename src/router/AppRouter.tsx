@@ -4,7 +4,7 @@ import {
   LazyAddVinylPage,
   LazyNotFoundPage,
   LazyVinylsPage,
-} from "./components/LazyLoader";
+} from "./lazyPages";
 
 const AppRouter: React.FC = () => {
   return (
