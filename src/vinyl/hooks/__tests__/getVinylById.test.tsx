@@ -1,22 +1,19 @@
 import { Provider } from "react-redux";
-import { act, renderHook } from "@testing-library/react";
 import setupStore from "../../../store/setupStore";
-import { aquellosOjosVerdes, weStillBelieve } from "../../fixtures";
 import type { VinylState } from "../../slice/types";
+import { renderHook } from "@testing-library/react";
 import useVinyls from "../useVinyls";
+import { act } from "react";
+import { aquellosOjosVerdes } from "../../fixtures";
 
-describe("Given the deleteVinylById function", () => {
-  describe("When it`s called with id of We Still Beleive vinyl", () => {
-    test("Then it should delete We Still Beleive vinyl", async () => {
-      const expectedVinylsTotal = 1;
+describe("Given the getVinylById function", () => {
+  describe("When it's called with if of We Still Believe vinyl", () => {
+    test("Then it should show We Still Believe data complete", async () => {
+      const expectVinylsTotal = 1;
 
       const initialState: VinylState = {
-        vinylCollection: {
-          vinyls: [weStillBelieve, aquellosOjosVerdes],
-          vinylsTotal: 2,
-        },
+        vinylCollection: { vinyls: [], vinylsTotal: 0 },
       };
-
       const store = setupStore({ vinyls: initialState });
 
       const wrapper = ({ children }: { children: React.ReactNode }) => (
@@ -26,15 +23,15 @@ describe("Given the deleteVinylById function", () => {
       const { result } = renderHook(() => useVinyls(), { wrapper: wrapper });
 
       await act(async () => {
-        result.current.deleteVinylById(aquellosOjosVerdes.id);
+        result.current.getVinylById(aquellosOjosVerdes.id);
       });
 
       const vinyls = result.current.vinylCollection.vinyls;
 
-      expect(vinyls).not.toContainEqual(
+      expect(vinyls).toContainEqual(
         expect.objectContaining({ title: aquellosOjosVerdes.title }),
       );
-      expect(vinyls.length).toBe(expectedVinylsTotal);
+      expect(vinyls.length).toBe(expectVinylsTotal);
     });
   });
 });
