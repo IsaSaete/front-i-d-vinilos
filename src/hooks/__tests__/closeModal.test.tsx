@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
-import store from "../../store/store";
 import { act, renderHook } from "@testing-library/react";
+import store from "../../store/store";
 import useModal from "../useModal";
 
 describe("Given the closeModal function", () => {
