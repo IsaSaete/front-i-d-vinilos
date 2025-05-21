@@ -10,9 +10,11 @@ import {
 } from "../slice/vinylSlice";
 import type { VinylSendFormData } from "../../types";
 import useModal from "../../hooks/useModal";
+import useLoading from "../../hooks/useLoading";
 
 const useVinyls = () => {
   const { showModal } = useModal();
+  const { endLoading, startLoading } = useLoading();
 
   const vinylCollection = useAppSelector(
     (state) => state.vinyls.vinylCollection,
@@ -24,11 +26,21 @@ const useVinyls = () => {
 
   const loadVinylsByPage = useCallback(
     async (pageNumber?: number): Promise<void> => {
-      const vinyls = await vinylClient.getVinyls(pageNumber);
+      const timeout = setTimeout(() => startLoading(), 200);
 
-      dispatch(loadVinylActionCreator(vinyls));
+      try {
+        const vinyls = await vinylClient.getVinyls(pageNumber);
+
+        dispatch(loadVinylActionCreator(vinyls));
+      } catch {
+        showModal("Error al cargar los vinilos", false);
+      } finally {
+        clearTimeout(timeout);
+
+        endLoading();
+      }
     },
-    [vinylClient, dispatch],
+    [vinylClient, dispatch, startLoading, endLoading, showModal],
   );
 
   const updateVinylByOwned = async (vinylId: string): Promise<void> => {
@@ -38,6 +50,8 @@ const useVinyls = () => {
   };
 
   const deleteVinylById = async (vinylId: string): Promise<void> => {
+    const timeout = setTimeout(() => startLoading(), 200);
+
     try {
       const deletedVinyl = await vinylClient.deleteVinyl(vinylId);
 
@@ -46,10 +60,16 @@ const useVinyls = () => {
       showModal("Vinilo eliminado", true);
     } catch {
       showModal("No se ha podido eliminar este vinilo", false);
+    } finally {
+      clearTimeout(timeout);
+
+      endLoading();
     }
   };
 
   const addNewVinyl = async (vinyl: VinylSendFormData): Promise<void> => {
+    const timeout = setTimeout(() => startLoading(), 200);
+
     try {
       const addVinyl = await vinylClient.addVinyl(vinyl);
 
@@ -58,6 +78,10 @@ const useVinyls = () => {
       showModal("Vinilo añadido", true);
     } catch {
       showModal("Error al añadir este vinilo", false);
+    } finally {
+      clearTimeout(timeout);
+
+      endLoading();
     }
   };
 

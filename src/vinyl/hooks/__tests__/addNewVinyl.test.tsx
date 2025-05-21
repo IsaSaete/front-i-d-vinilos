@@ -19,7 +19,6 @@ describe("Given the addNewVinyl function", () => {
           vinyls: [elCirculo, aquellosOjosVerdes],
           vinylsTotal: 2,
         },
-        isLoading: false,
       };
 
       const store = setupStore({ vinyls: initialState });
