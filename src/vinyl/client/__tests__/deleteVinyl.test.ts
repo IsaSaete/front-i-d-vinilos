@@ -32,9 +32,9 @@ describe("Given the deleteVinyl method of VinylClient", () => {
 
       const vinylClient = new VinylClient();
 
-      const vinylDeleted = vinylClient.deleteVinyl(aquellosOjosVerdes.id);
+      const deletedVinyl = vinylClient.deleteVinyl(aquellosOjosVerdes.id);
 
-      expect(vinylDeleted).rejects.toThrow(expectedErrorMessage);
+      expect(deletedVinyl).rejects.toThrow(expectedErrorMessage);
     });
   });
 });

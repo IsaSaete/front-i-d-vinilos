@@ -30,6 +30,7 @@ describe("Given the addVinyl method of VinylClient", () => {
         }),
       );
       const vinylClient = new VinylClient();
+
       const newVinyl = vinylClient.addVinyl(weStillBelieveData);
 
       expect(newVinyl).rejects.toThrow(expectedErrorMessage);

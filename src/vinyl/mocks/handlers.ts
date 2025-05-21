@@ -41,6 +41,12 @@ export const handlers = [
     });
   }),
 
+  http.get(`${apiUrl}/vinyls/${aquellosOjosVerdes.id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: aquellosOjosVerdesDto,
+    });
+  }),
+
   http.patch(`${apiUrl}/vinyls/toggle-owned/${minimalNation.id}`, () => {
     return HttpResponse.json<{ vinyl: VinylDto }>({
       vinyl: { ...minimalNationDto, isOwned: false },
