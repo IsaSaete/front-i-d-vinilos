@@ -5,9 +5,14 @@ import Loader from "../../../components/Loader/Loader";
 import "./VinylsPage.css";
 import VinylsList from "../../components/VinylsList/VinylsList";
 import Pagination from "../../../components/Pagination/Pagination";
+import useLoading from "../../../hooks/useLoading";
 
 const VinylsPage: React.FC = () => {
-  const { vinylCollection, loadVinylsByPage, isLoading } = useVinyls();
+  const { vinylCollection, loadVinylsByPage } = useVinyls();
+  const {
+    loadingState: { isLoading },
+  } = useLoading();
+
   const [searchParams] = useSearchParams();
 
   const pageNumber = searchParams.get("page")
@@ -15,7 +20,7 @@ const VinylsPage: React.FC = () => {
     : 1;
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     loadVinylsByPage(pageNumber);
   }, [pageNumber, loadVinylsByPage]);

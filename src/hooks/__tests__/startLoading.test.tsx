@@ -1,24 +1,24 @@
 import { Provider } from "react-redux";
 import { act, renderHook } from "@testing-library/react";
 import store from "../../store/store";
-import useModal from "../useModal";
+import useLoading from "../useLoading";
 
-describe("Given the closeModal function", () => {
+describe("Given the startLoading function", () => {
   describe("When it's called", () => {
-    test("Then it should close de modal", async () => {
+    test("Then it should show the app is loading", async () => {
       const wrapper = ({ children }: { children: React.ReactNode }) => (
         <Provider store={store}>{children}</Provider>
       );
 
-      const { result } = renderHook(() => useModal(), { wrapper: wrapper });
+      const { result } = renderHook(() => useLoading(), { wrapper: wrapper });
 
       await act(async () => {
-        result.current.closeModal();
+        result.current.startLoading();
       });
 
-      const isOpened = result.current.modal.isOpen;
+      const isLoading = result.current.loadingState.isLoading;
 
-      expect(isOpened).toBe(false);
+      expect(isLoading).toBe(true);
     });
   });
 });

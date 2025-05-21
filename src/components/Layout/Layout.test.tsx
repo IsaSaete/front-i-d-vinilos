@@ -73,13 +73,14 @@ describe("Given the Layout component", () => {
           </Provider>,
         );
 
-        const nextPageLink = screen.getByLabelText(expectedNextLinkText);
+        const nextPageLink = await screen.findByLabelText(expectedNextLinkText);
 
         await userEvent.click(nextPageLink);
 
         const vinylTitle = await screen.findByRole("heading", {
           name: expectedVinylTitle,
         });
+
         expect(vinylTitle).toBeInTheDocument();
       });
     });
@@ -99,7 +100,8 @@ describe("Given the Layout component", () => {
             </MemoryRouter>
           </Provider>,
         );
-        const previousPageLink = screen.getByLabelText(
+
+        const previousPageLink = await screen.findByLabelText(
           expectedPreviousLinkText,
         );
 
@@ -108,6 +110,7 @@ describe("Given the Layout component", () => {
         const vinylTitle = await screen.findByRole("heading", {
           name: expectedVinylTitle,
         });
+
         expect(vinylTitle).toBeInTheDocument();
       });
     });
