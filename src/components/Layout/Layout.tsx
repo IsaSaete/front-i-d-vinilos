@@ -1,8 +1,8 @@
 import { Outlet } from "react-router";
-import { LazyHeader } from "../../router/components/LazyLoader";
 import Modal from "../Modal/Modal";
-import "./Layout.css";
 import useModal from "../../hooks/useModal";
+import Header from "../Header/Header";
+import "./Layout.css";
 
 const Layout: React.FC = () => {
   const {
@@ -12,7 +12,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="main-container">
-      <LazyHeader />
+      <Header />
       <main className="page-container">
         <Outlet />
       </main>
