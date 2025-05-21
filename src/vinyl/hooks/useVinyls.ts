@@ -5,6 +5,7 @@ import VinylClient from "../client/VinylClient";
 import {
   addVinylCreator,
   deleteVinylCreator,
+  getVinylCreator,
   loadVinylActionCreator,
   toggleVinylOwnedCreator,
 } from "../slice/vinylSlice";
@@ -85,12 +86,29 @@ const useVinyls = () => {
     }
   };
 
+  const getVinylById = async (vinylId: string): Promise<void> => {
+    const timeout = setTimeout(() => startLoading(), 200);
+
+    try {
+      const selectedVinyl = await vinylClient.getVinylById(vinylId);
+
+      dispatch(getVinylCreator(selectedVinyl));
+    } catch {
+      showModal("Error al cargar este vinilo", false);
+    } finally {
+      clearTimeout(timeout);
+
+      endLoading();
+    }
+  };
+
   return {
     vinylCollection,
     loadVinylsByPage,
     updateVinylByOwned,
     deleteVinylById,
     addNewVinyl,
+    getVinylById,
   };
 };
 
