@@ -18,6 +18,8 @@ const VinylDetail: React.FC<VinylDetailProps> = ({ vinyl }) => {
     ? "Quitar de mi colección"
     : "Añadir a mi colección";
 
+  const styles = vinyl.styles ? vinyl.styles.join(", ") : "";
+
   const releaseDate = new Date(vinyl.releaseDate).toLocaleDateString("es-ES");
 
   return (
@@ -39,10 +41,9 @@ const VinylDetail: React.FC<VinylDetailProps> = ({ vinyl }) => {
         <li className="vinyl__info-item">
           Género: <span className="vinyl__info-data">{vinyl.genre}</span>
         </li>
-        {vinyl.styles && (
+        {styles && (
           <li className="vinyl__info-item">
-            Estilo:{" "}
-            <span className="vinyl__info-data">{`${vinyl.styles}`}</span>
+            Estilo: <span className="vinyl__info-data">{`${styles}`}</span>
           </li>
         )}
         <li className="vinyl__info-item">
