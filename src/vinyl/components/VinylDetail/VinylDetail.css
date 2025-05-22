@@ -1,0 +1,56 @@
+.title-page {
+  font-size: 1.875rem;
+  line-height: 28px;
+  color: var(--main-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--main-color);
+  margin-bottom: 10px;
+}
+
+.vinyl__info {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.vinyl__title {
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
+  text-transform: uppercase;
+  color: var(--main-color);
+  padding-top: 30px;
+}
+
+.vinyl__artist {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.vinyl__image {
+  width: 100%;
+  padding: 20px;
+}
+
+.vinyl__info-item {
+  font-weight: 700;
+  font-size: clamp(1.2rem, 5vw, 1.6rem);
+}
+
+.vinyl__info-data {
+  font-weight: 400;
+  font-size: clamp(1rem, 5vw, 1.5rem);
+}
+
+.vinyl__notes {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  border: 1px solid var(--main-color);
+  box-shadow: 1px 1px 1px var(--main-color);
+  padding: 8px;
+  white-space: break-spaces;
+}
+
+.button--collection {
+  width: 100%;
+  padding: 5px 0px;
+}
