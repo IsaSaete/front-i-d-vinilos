@@ -1,0 +1,6 @@
+.title-page {
+  font-size: 1.875rem;
+  line-height: 28px;
+  color: var(--main-color);
+  border-bottom: 2px solid var(--main-color);
+}
