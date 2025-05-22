@@ -1,6 +1,7 @@
 import { http, HttpResponse } from "msw";
 import {
   aquellosOjosVerdesDto,
+  awakeningsLive,
   elCirculoDto,
   minimalNationDto,
   strangeWeather,
@@ -62,6 +63,18 @@ export const handlers = [
   http.patch(`${apiUrl}/vinyls/toggle-owned/${weStillBelieve._id}`, () => {
     return HttpResponse.json<{ vinyl: VinylDto }>({
       vinyl: { ...weStillBelieveNotOwnedDto, isOwned: true },
+    });
+  }),
+
+  http.patch(`${apiUrl}/vinyls/toggle-owned/${awakeningsLive._id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: { ...awakeningsLive, isOwned: false },
+    });
+  }),
+
+  http.patch(`${apiUrl}/vinyls/toggle-owned/${aquellosOjosVerdes.id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: { ...aquellosOjosVerdesDto, isOwned: false },
     });
   }),
 
