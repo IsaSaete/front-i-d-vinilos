@@ -195,14 +195,14 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
             Notas:
           </label>
           <span className="vinyl-form__optionals-text">
-            (Campo opcional, máx. 150 caract.)
+            (Campo opcional, máx. 250 caract.)
           </span>
         </div>
         <textarea
           value={vinylData.notes}
           onChange={changeVinylData}
           id="notes"
-          maxLength={150}
+          maxLength={250}
           rows={5}
           className="vinyl-form__control"
         />

@@ -1,10 +1,13 @@
 import { Route, Routes } from "react-router";
-import VinylsPage from "../vinyl/pages/VinylsPage/VinylsPage";
+import { LazyAddVinylPage, LazyVinylsPage } from "./lazyPages";
+import VinylDetailPage from "../vinyl/pages/VinylDetailPage/VinylDetailPage";
 
 const AppTestRouter: React.FC = () => {
   return (
     <Routes>
-      <Route path="vinilos" element={<VinylsPage />} />
+      <Route path="vinilos" element={<LazyVinylsPage />} />
+      <Route path="añadir-vinilo" element={<LazyAddVinylPage />} />
+      <Route path="vinilo/:id" element={<VinylDetailPage />} />
     </Routes>
   );
 };
