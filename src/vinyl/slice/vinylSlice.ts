@@ -41,6 +41,7 @@ const vinylSlice = createSlice({
           vinyls: currentState.vinylCollection.vinyls.filter(
             (vinyl) => vinyl.id !== action.payload,
           ),
+          vinylsTotal: currentState.vinylCollection.vinyls.length,
         },
       };
     },
@@ -48,7 +49,15 @@ const vinylSlice = createSlice({
       return {
         vinylCollection: {
           vinyls: [...currentState.vinylCollection.vinyls, action.payload],
-          vinylsTotal: currentState.vinylCollection.vinylsTotal + 1,
+          vinylsTotal: currentState.vinylCollection.vinyls.length,
+        },
+      };
+    },
+    getVinylById: (currentState, action: PayloadAction<Vinyl>): VinylState => {
+      return {
+        vinylCollection: {
+          vinyls: [action.payload],
+          vinylsTotal: currentState.vinylCollection.vinylsTotal,
         },
       };
     },
@@ -60,6 +69,7 @@ export const {
   toggleOwnedVinyl: toggleVinylOwnedCreator,
   deleteVinyl: deleteVinylCreator,
   addVinyl: addVinylCreator,
+  getVinylById: getVinylCreator,
 } = vinylSlice.actions;
 
 export const vinylReducer = vinylSlice.reducer;

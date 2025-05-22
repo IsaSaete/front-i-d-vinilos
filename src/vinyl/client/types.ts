@@ -6,6 +6,7 @@ export interface VinylClientStructure {
   toggleIsOwnedVinyl: (vinylId: string) => Promise<Vinyl>;
   deleteVinyl: (vinylId: string) => Promise<Vinyl>;
   addVinyl: (vinyl: VinylSendFormData) => Promise<Vinyl>;
+  getVinylById: (vinylId: string) => Promise<Vinyl>;
 }
 
 export interface VinylsCollectionData {

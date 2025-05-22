@@ -33,8 +33,8 @@ describe("Given the addNewVinyl function", () => {
         result.current.addNewVinyl(weStillBelieveData);
       });
 
-      const vinylsTotal = result.current.vinylCollection.vinylsTotal;
       const vinyls = result.current.vinylCollection.vinyls;
+      const vinylsTotal = result.current.vinylCollection.vinyls.length;
 
       expect(vinylsTotal).toBe(expectedVinylsTotal);
       expect(vinyls).toContainEqual(
