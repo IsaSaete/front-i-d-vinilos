@@ -2,6 +2,7 @@ import { Route, Routes, Navigate } from "react-router";
 import App from "../components/App/App";
 import {
   LazyAddVinylPage,
+  LazyDetailVinylPage,
   LazyNotFoundPage,
   LazyVinylsPage,
 } from "./lazyPages";
@@ -13,6 +14,7 @@ const AppRouter: React.FC = () => {
         <Route index element={<Navigate to="/vinilos" />} />
         <Route path="vinilos" element={<LazyVinylsPage />} />
         <Route path="añadir-vinilo" element={<LazyAddVinylPage />} />
+        <Route path="vinilo/:id" element={<LazyDetailVinylPage />} />
         <Route path="*" element={<LazyNotFoundPage />} />
       </Route>
     </Routes>

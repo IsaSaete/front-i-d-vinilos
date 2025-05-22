@@ -1,7 +1,7 @@
+import { Link } from "react-router";
 import Button from "../../../components/Button/Button";
 import type { Vinyl } from "../../../types";
 import useVinyls from "../../hooks/useVinyls";
-
 import "./VinylCard.css";
 
 interface VinylCardProps {
@@ -69,6 +69,11 @@ const VinylCard: React.FC<VinylCardProps> = ({
       >
         {collectionOwner}
       </Button>
+      <div className="vinyl__link-info">
+        <Link className="link__info" to={`/vinilo/${id}`}>
+          Más info
+        </Link>
+      </div>
     </article>
   );
 };

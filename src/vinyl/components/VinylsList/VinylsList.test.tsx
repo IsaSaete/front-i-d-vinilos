@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router";
 import VinylsList from "./VinylsList";
 import {
   aquellosOjosVerdes,
@@ -21,6 +22,7 @@ describe("Given the VinylsList component", () => {
         <Provider store={store}>
           <VinylsList vinyls={vinylsTestData} />
         </Provider>,
+        { wrapper: MemoryRouter },
       );
 
       const aquellosOjosVerdesTitle = screen.getByRole("heading", {

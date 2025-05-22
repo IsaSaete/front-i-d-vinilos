@@ -1,12 +1,3 @@
-.title-page {
-  font-size: 1.875rem;
-  line-height: 28px;
-  color: var(--main-color);
-  font-weight: 600;
-  border-bottom: 2px solid var(--main-color);
-  margin-bottom: 10px;
-}
-
 .vinyl__info {
   padding-top: 20px;
   display: flex;

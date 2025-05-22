@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router";
 import VinylCard from "./VinylCard";
 import { aquellosOjosVerdes, elCirculoNotOwned } from "../../fixtures";
 import store from "../../../store/store";
@@ -13,6 +14,7 @@ describe("Given the VinylCard component", () => {
         <Provider store={store}>
           <VinylCard vinyl={aquellosOjosVerdes} index={0} />
         </Provider>,
+        { wrapper: MemoryRouter },
       );
 
       const vinylTitle = screen.getByRole("heading", {
@@ -29,6 +31,7 @@ describe("Given the VinylCard component", () => {
         <Provider store={store}>
           <VinylCard vinyl={aquellosOjosVerdes} index={0} />
         </Provider>,
+        { wrapper: MemoryRouter },
       );
 
       const vinylArtist = screen.getByRole("heading", {
@@ -45,6 +48,7 @@ describe("Given the VinylCard component", () => {
         <Provider store={store}>
           <VinylCard vinyl={aquellosOjosVerdes} index={0} />
         </Provider>,
+        { wrapper: MemoryRouter },
       );
 
       const vinylImage = screen.getByAltText(expectedImageAlt);
@@ -59,11 +63,27 @@ describe("Given the VinylCard component", () => {
         <Provider store={store}>
           <VinylCard vinyl={aquellosOjosVerdes} index={0} />
         </Provider>,
+        { wrapper: MemoryRouter },
       );
 
       const deleteButton = screen.getByLabelText(expectedButtonText);
 
       expect(deleteButton).toBeVisible();
+    });
+
+    test("Then it should show a link with 'Más info' text", () => {
+      const expectedLinkText = /más info/i;
+
+      render(
+        <Provider store={store}>
+          <VinylCard vinyl={aquellosOjosVerdes} index={0} />
+        </Provider>,
+        { wrapper: MemoryRouter },
+      );
+
+      const infoLink = screen.getByRole("link", { name: expectedLinkText });
+
+      expect(infoLink).toBeInTheDocument();
     });
 
     describe("And this vinyl it is in my collection", () => {
@@ -74,6 +94,7 @@ describe("Given the VinylCard component", () => {
           <Provider store={store}>
             <VinylCard vinyl={aquellosOjosVerdes} index={0} />
           </Provider>,
+          { wrapper: MemoryRouter },
         );
 
         const button = screen.getByRole("button", { name: expectedButtonText });
@@ -88,6 +109,7 @@ describe("Given the VinylCard component", () => {
           <Provider store={store}>
             <VinylCard vinyl={aquellosOjosVerdes} index={0} />
           </Provider>,
+          { wrapper: MemoryRouter },
         );
 
         const image = screen.getByAltText(expectedAltText);
@@ -105,6 +127,7 @@ describe("Given the VinylCard component", () => {
         <Provider store={store}>
           <VinylCard vinyl={elCirculoNotOwned} index={0} />
         </Provider>,
+        { wrapper: MemoryRouter },
       );
 
       const button = screen.getByRole("button", { name: expectedButtonText });
@@ -119,6 +142,7 @@ describe("Given the VinylCard component", () => {
         <Provider store={store}>
           <VinylCard vinyl={elCirculoNotOwned} index={0} />
         </Provider>,
+        { wrapper: MemoryRouter },
       );
 
       const image = screen.queryByAltText(expectedAltText);
