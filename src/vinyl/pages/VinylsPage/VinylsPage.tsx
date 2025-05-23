@@ -30,7 +30,6 @@ const VinylsPage: React.FC = () => {
   }
 
   const { vinyls, vinylsTotal } = vinylCollection;
-
   const vinylsByPage = vinyls.length;
 
   return (
