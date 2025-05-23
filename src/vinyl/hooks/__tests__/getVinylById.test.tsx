@@ -1,9 +1,10 @@
 import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router";
+import { renderHook } from "@testing-library/react";
+import { act } from "react";
 import setupStore from "../../../store/setupStore";
 import type { VinylState } from "../../slice/types";
-import { renderHook } from "@testing-library/react";
 import useVinyls from "../useVinyls";
-import { act } from "react";
 import { aquellosOjosVerdes } from "../../fixtures";
 
 describe("Given the getVinylById function", () => {
@@ -17,7 +18,9 @@ describe("Given the getVinylById function", () => {
       const store = setupStore({ vinyls: initialState });
 
       const wrapper = ({ children }: { children: React.ReactNode }) => (
-        <Provider store={store}>{children}</Provider>
+        <MemoryRouter>
+          <Provider store={store}>{children}</Provider>
+        </MemoryRouter>
       );
 
       const { result } = renderHook(() => useVinyls(), { wrapper: wrapper });

@@ -1,5 +1,6 @@
 import { Provider } from "react-redux";
 import { act, renderHook } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 import setupStore from "../../../store/setupStore";
 import {
   aquellosOjosVerdes,
@@ -22,7 +23,9 @@ describe("Given the updateVinylByOwned function", () => {
       const store = setupStore({ vinyls: initialState });
 
       const wrapper = ({ children }: { children: React.ReactNode }) => (
-        <Provider store={store}>{children}</Provider>
+        <MemoryRouter>
+          <Provider store={store}>{children}</Provider>
+        </MemoryRouter>
       );
       const { result } = renderHook(() => useVinyls(), { wrapper: wrapper });
 

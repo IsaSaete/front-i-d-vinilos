@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useCallback, useMemo } from "react";
+import { useNavigate } from "react-router";
 import { useAppSelector } from "../../store/hooks";
 import VinylClient from "../client/VinylClient";
 import {
@@ -12,7 +13,6 @@ import {
 import type { VinylSendFormData } from "../../types";
 import useModal from "../../hooks/useModal";
 import useLoading from "../../hooks/useLoading";
-import { useNavigate } from "react-router";
 
 const useVinyls = () => {
   const navigate = useNavigate();

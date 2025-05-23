@@ -1,16 +1,19 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
+import { Provider } from "react-redux";
 import VinylDetail from "./VinylDetail";
 import { aquellosOjosVerdes, elCirculoNotOwned } from "../../fixtures";
-import { Provider } from "react-redux";
 import store from "../../../store/store";
 
 describe("Given the VinylDetail component", () => {
   describe("When receives 'Aquellos ojos verdes' vinyl", () => {
     test("Then it should show a Aquellos ojos verdes inside a heading", () => {
       render(
-        <Provider store={store}>
-          <VinylDetail vinyl={aquellosOjosVerdes} />
-        </Provider>,
+        <MemoryRouter>
+          <Provider store={store}>
+            <VinylDetail vinyl={aquellosOjosVerdes} />
+          </Provider>
+        </MemoryRouter>,
       );
 
       const vinylTitle = screen.getByRole("heading", {
@@ -24,9 +27,11 @@ describe("Given the VinylDetail component", () => {
       const expectedImageTExt = /vinilo Aquellos Ojos Verdes de Carlos Gardel/i;
 
       render(
-        <Provider store={store}>
-          <VinylDetail vinyl={aquellosOjosVerdes} />
-        </Provider>,
+        <MemoryRouter>
+          <Provider store={store}>
+            <VinylDetail vinyl={aquellosOjosVerdes} />
+          </Provider>
+        </MemoryRouter>,
       );
 
       const vinylImage = screen.getByAltText(expectedImageTExt);
@@ -39,9 +44,11 @@ describe("Given the VinylDetail component", () => {
         const expectedButtonText = /quitar de mi colección/i;
 
         render(
-          <Provider store={store}>
-            <VinylDetail vinyl={aquellosOjosVerdes} />
-          </Provider>,
+          <MemoryRouter>
+            <Provider store={store}>
+              <VinylDetail vinyl={aquellosOjosVerdes} />
+            </Provider>
+          </MemoryRouter>,
         );
 
         const button = screen.getByRole("button", {
@@ -58,9 +65,11 @@ describe("Given the VinylDetail component", () => {
       const expectedButtonText = /añadir a mi colección/i;
 
       render(
-        <Provider store={store}>
-          <VinylDetail vinyl={elCirculoNotOwned} />
-        </Provider>,
+        <MemoryRouter>
+          <Provider store={store}>
+            <VinylDetail vinyl={elCirculoNotOwned} />
+          </Provider>
+        </MemoryRouter>,
       );
 
       const button = screen.getByRole("button", {

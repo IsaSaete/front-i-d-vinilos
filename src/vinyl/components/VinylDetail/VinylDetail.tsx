@@ -32,6 +32,8 @@ const VinylDetail: React.FC<VinylDetailProps> = ({ vinyl }) => {
         className="vinyl__image"
         src={vinyl.coverImageUrl}
         alt={`Vinilo ${vinyl.title} de ${vinyl.artist}`}
+        width={400}
+        height={263}
       />
 
       <ul className="vinyl__info">

@@ -1,4 +1,5 @@
 import { act, renderHook } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 import { Provider } from "react-redux";
 import useVinyls from "../useVinyls";
 import store from "../../../store/store";
@@ -10,7 +11,9 @@ describe("Given the loadVinylsByPage function", () => {
       const expectedTitleVinyl = "We Still Believe";
 
       const wrapper = ({ children }: { children: React.ReactNode }) => (
-        <Provider store={store}>{children}</Provider>
+        <MemoryRouter>
+          <Provider store={store}>{children}</Provider>
+        </MemoryRouter>
       );
 
       const { result } = renderHook(() => useVinyls(), { wrapper: wrapper });
