@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import Button from "../../../components/Button/Button";
 import type { Vinyl } from "../../../types";
 import useVinyls from "../../hooks/useVinyls";
@@ -15,14 +15,25 @@ const VinylCard: React.FC<VinylCardProps> = ({
 }) => {
   const loadingType = index <= 1 ? "eager" : "lazy";
 
+  const { vinylCollection } = useVinyls();
+
+  const [searchParams] = useSearchParams();
+
+  const pageNumber = searchParams.get("page")
+    ? Number(searchParams.get("page"))
+    : 1;
+
   const { updateVinylByOwned, deleteVinylById } = useVinyls();
 
   const toggleisOwned = () => {
     updateVinylByOwned(id);
   };
 
+  const pageToNavigate =
+    vinylCollection.vinyls.length === 1 ? pageNumber - 1 : pageNumber;
+
   const deletedVinyl = () => {
-    deleteVinylById(id);
+    deleteVinylById(id, pageToNavigate);
   };
 
   const collectionOwner = isOwned

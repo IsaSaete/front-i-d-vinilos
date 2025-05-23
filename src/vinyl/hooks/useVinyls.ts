@@ -12,8 +12,10 @@ import {
 import type { VinylSendFormData } from "../../types";
 import useModal from "../../hooks/useModal";
 import useLoading from "../../hooks/useLoading";
+import { useNavigate } from "react-router";
 
 const useVinyls = () => {
+  const navigate = useNavigate();
   const { showModal } = useModal();
   const { endLoading, startLoading } = useLoading();
 
@@ -50,7 +52,10 @@ const useVinyls = () => {
     dispatch(toggleVinylOwnedCreator(updatedVinyl));
   };
 
-  const deleteVinylById = async (vinylId: string): Promise<void> => {
+  const deleteVinylById = async (
+    vinylId: string,
+    pageNumber: number,
+  ): Promise<void> => {
     const timeout = setTimeout(() => startLoading(), 200);
 
     try {
@@ -59,6 +64,8 @@ const useVinyls = () => {
       dispatch(deleteVinylCreator(deletedVinyl.id));
 
       showModal("Vinilo eliminado", true);
+      navigate(`/vinilos?page=${pageNumber}`);
+      loadVinylsByPage();
     } catch {
       showModal("No se ha podido eliminar este vinilo", false);
     } finally {
