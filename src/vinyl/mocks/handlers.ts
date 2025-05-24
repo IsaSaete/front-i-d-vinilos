@@ -16,6 +16,8 @@ import {
   aquellosOjosVerdes,
   elCirculoNotOwned,
   minimalNation,
+  sanctuary,
+  sanctuaryUpdated,
 } from "../fixtures";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -97,6 +99,12 @@ export const handlers = [
   http.put(`${apiUrl}/vinyls/${weStillBelieve._id}`, () => {
     return HttpResponse.json<{ vinyl: VinylDto }>({
       vinyl: weStillBelieveNotOwnedDto,
+    });
+  }),
+
+  http.put(`${apiUrl}/vinyls/${sanctuary.id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: sanctuaryUpdated,
     });
   }),
 ];

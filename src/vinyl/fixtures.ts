@@ -1,4 +1,5 @@
 import type { Vinyl, VinylSendFormData } from "../types";
+import type { VinylDto } from "./dto/types";
 
 export const aquellosOjosVerdes: Vinyl = {
   id: "14fbf39d8c9d1e4dabc5f1e1",
@@ -121,5 +122,49 @@ export const weStillBelieveData: VinylSendFormData = {
   styles: ["Detroit Techno", "House"],
   notes:
     "Una pieza que conecta el espíritu del techno clásico con el activismo contemporáneo.",
+  isOwned: true,
+};
+
+export const sanctuaryData: VinylSendFormData = {
+  title: "Sanctuary",
+  artist: "Octo Octa",
+  country: "USA",
+  releaseDate: new Date("2019-08-02"),
+  genre: "House",
+  format: '12"',
+  coverImageUrl: "https://example.com/sanctuary.jpg",
+  styles: ["Breakbeat", "Deep House"],
+  notes:
+    "Un viaje sonoro introspectivo que mezcla breakbeats cálidos con melodías envolventes, explorando identidad y libertad.",
+  isOwned: true,
+};
+
+export const sanctuary: Vinyl = {
+  id: "64fbf39d8c9d1e4daba3b1e1",
+  title: "Sanctuary",
+  artist: "Octo Octa",
+  country: "USA",
+  releaseDate: "2019-08-02",
+  genre: "House",
+  format: '12"',
+  coverImageUrl: "https://example.com/sanctuary.jpg",
+  styles: ["Breakbeat", "Deep House"],
+  notes:
+    "Un viaje sonoro introspectivo que mezcla breakbeats cálidos con melodías envolventes, explorando identidad y libertad.",
+  isOwned: true,
+};
+
+export const sanctuaryUpdated: VinylDto = {
+  _id: "64fbf39d8c9d1e4daba3b1e1",
+  title: "Sanctuary 2019",
+  artist: "Octo Octa",
+  country: "USA",
+  releaseDate: "2019-08-02",
+  genre: "House",
+  format: '12"',
+  coverImageUrl: "https://example.com/sanctuary.jpg",
+  styles: ["Breakbeat", "Deep House"],
+  notes:
+    "Un viaje sonoro introspectivo que mezcla breakbeats cálidos con melodías envolventes, explorando identidad y libertad.",
   isOwned: true,
 };
