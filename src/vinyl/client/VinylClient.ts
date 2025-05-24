@@ -95,9 +95,31 @@ class VinylClient implements VinylClientStructure {
     if (!response.ok) {
       throw new Error("Error getting this vinyl");
     }
+
     const { vinyl: vinylData } = (await response.json()) as ResponseVinylDto;
 
     const vinyl = mapVinylDtotoVinyl(vinylData);
+
+    return vinyl;
+  };
+
+  public updateVinyl = async (
+    vinylId: string,
+    vinylToUpdate: VinylSendFormData,
+  ): Promise<Vinyl> => {
+    const response = await fetch(`${this.apiUrl}/vinyls/${vinylId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ vinyl: vinylToUpdate }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Error modifying this vinyl");
+    }
+
+    const { vinyl: updatedVinyl } = (await response.json()) as ResponseVinylDto;
+
+    const vinyl = mapVinylDtotoVinyl(updatedVinyl);
 
     return vinyl;
   };
