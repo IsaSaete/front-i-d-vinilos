@@ -54,8 +54,7 @@
   justify-content: center;
   max-height: 45px;
   width: 100%;
-  margin-top: 35px;
-  font-size: clamp(1.2rem, 5vw, 1.875rem);
+  font-size: clamp(1rem, 5vw, 1.6rem);
 }
 
 .vinyl__owned-icon {
@@ -88,15 +87,22 @@
   justify-content: center;
   max-height: 45px;
   width: 100%;
-  margin-top: 5px;
   color: var(--secondary-color);
   background-color: var(--main-color);
   border-radius: 16px;
   cursor: pointer;
   text-align: center;
-  font-size: clamp(1.2rem, 5vw, 1.875rem);
+  font-size: clamp(1rem, 5vw, 1.6rem);
 }
 
 .vinyl__link-info {
   display: flex;
+  gap: 5px;
+}
+
+.buttons-container {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
 }

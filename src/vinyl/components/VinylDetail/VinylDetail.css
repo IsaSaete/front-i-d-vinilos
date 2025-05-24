@@ -21,6 +21,7 @@
 .vinyl__image {
   width: 100%;
   padding: 20px;
+  height: auto;
 }
 
 .vinyl__info-item {
@@ -42,6 +43,24 @@
 }
 
 .button--collection {
-  width: 100%;
   padding: 5px 0px;
+  width: 100%;
+  font-size: clamp(1rem, 5vw, 1.5rem);
+}
+
+.vinyl__modify-info {
+  color: var(--secondary-color);
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  padding: 5px 0px;
+  border-radius: 16px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
