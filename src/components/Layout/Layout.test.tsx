@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
@@ -56,7 +56,42 @@ describe("Given the Layout component", () => {
         name: expectedVinylTitle,
       });
 
-      expect(vinylTitle).toBeVisible();
+      expect(vinylTitle).toBeInTheDocument();
+    });
+
+    describe("And the user clicks on the 'Modificar info' button on the vinyl card Strange Weather, Isn't It?'", () => {
+      test("Then it should show 'Modifica el vinilo' inside a heading", async () => {
+        const expectedVinylTitle = /strange Weather, isn't it?/i;
+
+        render(
+          <Provider store={store}>
+            <MemoryRouter initialEntries={["/vinilos"]}>
+              <Layout />
+              <AppTestRouter />
+            </MemoryRouter>
+          </Provider>,
+        );
+
+        const vinylTitle = await screen.findByRole("heading", {
+          name: expectedVinylTitle,
+        });
+
+        expect(vinylTitle).toBeInTheDocument();
+
+        const vinylCard = vinylTitle.closest("article")!;
+
+        const modifyButton = await within(vinylCard).findByRole("link", {
+          name: /modificar info/i,
+        });
+
+        await userEvent.click(modifyButton);
+
+        const pageTitle = await screen.findByRole("heading", {
+          name: /modifica el vinilo/i,
+        });
+
+        expect(pageTitle).toBeInTheDocument();
+      });
     });
 
     describe("And the user clicks the link 'Ir a la página siguiente'", () => {
