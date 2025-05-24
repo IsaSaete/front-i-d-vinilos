@@ -65,8 +65,10 @@ const useVinyls = () => {
       dispatch(deleteVinylCreator(deletedVinyl));
 
       showModal("Vinilo eliminado", true);
+
       navigate(`/vinilos?page=${pageNumber}`);
-      loadVinylsByPage();
+
+      loadVinylsByPage(pageNumber);
     } catch {
       showModal("No se ha podido eliminar este vinilo", false);
     } finally {
