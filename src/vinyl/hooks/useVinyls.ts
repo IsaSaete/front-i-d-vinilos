@@ -9,6 +9,7 @@ import {
   getVinylCreator,
   loadVinylActionCreator,
   toggleVinylOwnedCreator,
+  updatedVinylCreator,
 } from "../slice/vinylSlice";
 import type { VinylSendFormData } from "../../types";
 import useModal from "../../hooks/useModal";
@@ -61,7 +62,7 @@ const useVinyls = () => {
     try {
       const deletedVinyl = await vinylClient.deleteVinyl(vinylId);
 
-      dispatch(deleteVinylCreator(deletedVinyl.id));
+      dispatch(deleteVinylCreator(deletedVinyl));
 
       showModal("Vinilo eliminado", true);
       navigate(`/vinilos?page=${pageNumber}`);
@@ -112,6 +113,27 @@ const useVinyls = () => {
     [vinylClient, dispatch, startLoading, endLoading, showModal],
   );
 
+  const updateVinyl = async (
+    vinylId: string,
+    vinyl: VinylSendFormData,
+  ): Promise<void> => {
+    const timeout = setTimeout(() => startLoading(), 200);
+
+    try {
+      const updatedVinyl = await vinylClient.updateVinyl(vinylId, vinyl);
+
+      dispatch(updatedVinylCreator(updatedVinyl));
+
+      showModal("Vinilo modificado", true);
+    } catch {
+      showModal("Error al modiciar el vinilo", false);
+    } finally {
+      clearTimeout(timeout);
+
+      endLoading();
+    }
+  };
+
   return {
     vinylCollection,
     loadVinylsByPage,
@@ -119,6 +141,7 @@ const useVinyls = () => {
     deleteVinylById,
     addNewVinyl,
     getVinylById,
+    updateVinyl,
   };
 };
 
