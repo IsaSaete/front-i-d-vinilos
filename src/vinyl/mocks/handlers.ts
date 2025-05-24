@@ -93,4 +93,10 @@ export const handlers = [
       vinyl: weStillBelieveNotOwnedDto,
     });
   }),
+
+  http.put(`${apiUrl}/vinyls/${weStillBelieve._id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: weStillBelieveNotOwnedDto,
+    });
+  }),
 ];
