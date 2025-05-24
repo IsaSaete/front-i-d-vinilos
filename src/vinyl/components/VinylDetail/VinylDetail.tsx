@@ -72,7 +72,10 @@ const VinylDetail: React.FC<VinylDetailProps> = ({ vinyl }) => {
         >
           {collectionOwner}
         </Button>
-        <Link className="vinyl__modify-info" to={"/"}>
+        <Link
+          className="vinyl__modify-info"
+          to={`/modificar-vinilo/${vinyl.id}`}
+        >
           Modificar info
         </Link>
       </div>

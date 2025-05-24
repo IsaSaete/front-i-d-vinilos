@@ -85,7 +85,7 @@ const VinylCard: React.FC<VinylCardProps> = ({
           <Link className="link__info" to={`/vinilo/${id}`}>
             Más info
           </Link>
-          <Link className="link__info" to={`/vinilo/${id}`}>
+          <Link className="link__info" to={`/modificar-vinilo/${id}`}>
             Modificar info
           </Link>
         </div>
