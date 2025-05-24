@@ -13,3 +13,7 @@ export const LazyAddVinylPage = lazy(
 export const LazyDetailVinylPage = lazy(
   () => import("../vinyl/pages/VinylDetailPage/VinylDetailPage"),
 );
+
+export const LazyModifyVinylPage = lazy(
+  () => import("../vinyl/pages/ModifyVinylPage/ModifyVinylPage"),
+);

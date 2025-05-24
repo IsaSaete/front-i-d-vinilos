@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Button from "../../../components/Button/Button";
 import type { Vinyl } from "../../../types";
 import useVinyls from "../../hooks/useVinyls";
@@ -62,13 +63,22 @@ const VinylDetail: React.FC<VinylDetailProps> = ({ vinyl }) => {
         )}
       </ul>
       {vinyl.notes && <p className="vinyl__notes">{vinyl.notes}</p>}
-      <Button
-        action={toggleisOwned}
-        classNameModifier="collection"
-        aria-label={collectionOwner}
-      >
-        {collectionOwner}
-      </Button>
+
+      <div className="buttons-container">
+        <Button
+          action={toggleisOwned}
+          classNameModifier="collection"
+          aria-label={collectionOwner}
+        >
+          {collectionOwner}
+        </Button>
+        <Link
+          className="vinyl__modify-info"
+          to={`/modificar-vinilo/${vinyl.id}`}
+        >
+          Modificar info
+        </Link>
+      </div>
     </>
   );
 };
