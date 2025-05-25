@@ -16,6 +16,7 @@ const VinylDetailPage: React.FC = () => {
 
   useEffect(() => {
     window.scroll({ top: 0, behavior: "instant" });
+
     getVinylById(vinylId!);
   }, [vinylId, getVinylById]);
 

@@ -8,10 +8,10 @@ export const aquellosOjosVerdes: Vinyl = {
   country: "Argentina",
   releaseDate: "1935-01-01",
   genre: "Tango",
-  format: "Vinilo",
+  format: "7''",
   coverImageUrl: "https://example.com/aquellos-ojos-verdes.jpg",
   styles: ["Tango", "Ranchera"],
-  purchasedAt: "2024-05-10",
+  purchasedAt: "Revolver",
   notes:
     "Un clásico eterno del tango argentino. El vinilo ofrece una calidad sonora que remite a la época dorada del tango.",
   isOwned: true,
@@ -27,7 +27,7 @@ export const elCirculoNotOwned: Vinyl = {
   format: "Vinilo",
   coverImageUrl: "https://example.com/el-circulo-kaseo.jpg",
   styles: ["Rap", "Hip Hop", "Lírico"],
-  purchasedAt: "2024-05-09",
+  purchasedAt: "Revolver",
   notes:
     "Uno de los discos más importantes del rap español, 'El Círculo' muestra la madurez lírica y artística de Kase.O.",
   isOwned: false,

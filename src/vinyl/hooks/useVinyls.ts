@@ -126,9 +126,9 @@ const useVinyls = () => {
 
       dispatch(updatedVinylCreator(updatedVinyl));
 
-      showModal("Vinilo modificado", true);
+      showModal("Cambios guardados", true);
     } catch {
-      showModal("Error al modiciar el vinilo", false);
+      showModal("Los cambios no se han podido guardar", false);
     } finally {
       clearTimeout(timeout);
 
