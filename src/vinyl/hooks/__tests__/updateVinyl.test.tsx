@@ -1,9 +1,9 @@
 import { MemoryRouter } from "react-router";
 import { Provider } from "react-redux";
+import { act, renderHook } from "@testing-library/react";
 import setupStore from "../../../store/setupStore";
 import { sanctuary, sanctuaryData, sanctuaryUpdated } from "../../fixtures";
 import type { VinylState } from "../../slice/types";
-import { act, renderHook } from "@testing-library/react";
 import useVinyls from "../useVinyls";
 
 describe("Given the updateVinyl function", () => {
