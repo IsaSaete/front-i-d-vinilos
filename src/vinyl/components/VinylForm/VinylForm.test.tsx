@@ -194,7 +194,11 @@ describe("Given the VinylForm component", () => {
         const expectedButtonText = /añadir vinilo/i;
 
         render(
-          <VinylForm addVinyl={action} initialVinylData={initialVinylData} />,
+          <VinylForm
+            exists={false}
+            addVinyl={action}
+            initialVinylData={initialVinylData}
+          />,
           { wrapper: MemoryRouter },
         );
 
@@ -228,7 +232,11 @@ describe("Given the VinylForm component", () => {
           const expectedButtonText = /añadir vinilo/i;
 
           render(
-            <VinylForm addVinyl={action} initialVinylData={initialVinylData} />,
+            <VinylForm
+              exists={false}
+              addVinyl={action}
+              initialVinylData={initialVinylData}
+            />,
             { wrapper: MemoryRouter },
           );
 

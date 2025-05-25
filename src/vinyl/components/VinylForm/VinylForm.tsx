@@ -87,6 +87,7 @@ const VinylForm: React.FC<VinylFormProps> = ({
     const newVinyl = mapVinylFormDataToVinySend(vinylData);
 
     await updateVinyl!(vinylId!, newVinyl);
+    navigate(`/vinilo/${vinylId}`);
   };
 
   const onSubmit = exists ? onSubmitUpdateForm : onSubmitAddForm;
