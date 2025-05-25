@@ -1,31 +1,26 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import Button from "../../../components/Button/Button";
 import type { VinylFormData, VinylSendFormData } from "../../../types";
-import "./VinylForm.css";
 import { mapVinylFormDataToVinySend } from "../../dto/mapper";
-import { useNavigate } from "react-router";
+import "./VinylForm.css";
 
 interface VinylFormProps {
-  action: (vinyl: VinylSendFormData) => Promise<void>;
+  addVinyl?: (vinyl: VinylSendFormData) => Promise<void>;
+  updateVinyl?: (vinylId: string, vinyl: VinylSendFormData) => Promise<void>;
+  vinylId?: string;
+  exists?: boolean;
+  initialVinylData: VinylFormData;
 }
 
-const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
-  const initialVinylData: VinylFormData = {
-    title: "",
-    artist: "",
-    country: "",
-    releaseDate: "",
-    genre: "",
-    format: "",
-    coverImageUrl: "",
-    styles: "",
-    purchasedAt: "",
-    notes: "",
-    isOwned: false,
-  };
-
+const VinylForm: React.FC<VinylFormProps> = ({
+  addVinyl,
+  updateVinyl,
+  vinylId,
+  exists,
+  initialVinylData,
+}) => {
   const [vinylData, setVinylData] = useState<VinylFormData>(initialVinylData);
-  const newVinyl = mapVinylFormDataToVinySend(vinylData);
 
   const changeVinylData = (
     event:
@@ -39,6 +34,18 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
       ...vinylData,
       [event.target.id]: newValue,
     }));
+  };
+
+  const changeStylesData = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const stylesInput = event.target.value;
+
+    const vinylStyles = stylesInput
+      .replaceAll(/[.,;#|/]/g, "")
+      .split(" ")
+      .slice(0, 3)
+      .join(", ");
+
+    setVinylData((vinylData) => ({ ...vinylData, styles: vinylStyles }));
   };
 
   const checkboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,17 +68,33 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
 
   const navigate = useNavigate();
 
-  const onSubmitForm = async (
+  const onSubmitAddForm = async (
     event: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
     event.preventDefault();
 
-    await action(newVinyl);
+    const newVinyl = mapVinylFormDataToVinySend(vinylData);
+
+    await addVinyl!(newVinyl);
     navigate("/");
   };
 
+  const onSubmitUpdateForm = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
+    event.preventDefault();
+
+    const newVinyl = mapVinylFormDataToVinySend(vinylData);
+
+    await updateVinyl!(vinylId!, newVinyl);
+  };
+
+  const onSubmit = exists ? onSubmitUpdateForm : onSubmitAddForm;
+
+  const buttonText = exists ? "Guardar cambios" : "Añadir vinilo";
+
   return (
-    <form onSubmit={onSubmitForm}>
+    <form onSubmit={onSubmit}>
       <div className="vinyl-form__group">
         <label htmlFor="title" className="vinyl-form__text">
           Título:
@@ -138,7 +161,7 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
             className="vinyl-form__control"
             required
           >
-            <option value="" hidden disabled>
+            <option value="" disabled>
               {}
             </option>
             <option value={"7''"}>7''</option>
@@ -177,13 +200,11 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
           <label htmlFor="styles" className="vinyl-form__text">
             Estilo:
           </label>
-          <span className="vinyl-form__optionals-text">
-            (Campo opcional, máximo 3)
-          </span>
+          <span className="vinyl-form__optionals-text">(Opcional, máx. 3)</span>
         </div>
         <input
           value={vinylData.styles}
-          onChange={changeVinylData}
+          onChange={changeStylesData}
           id="styles"
           type="text"
           className="vinyl-form__control"
@@ -195,7 +216,7 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
             Notas:
           </label>
           <span className="vinyl-form__optionals-text">
-            (Campo opcional, máx. 250 caract.)
+            (Opcional, máx. 250 caract.)
           </span>
         </div>
         <textarea
@@ -212,7 +233,7 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
           <label htmlFor="purchasedAt" className="vinyl-form__text">
             Comprado en:
           </label>
-          <span className="vinyl-form__optionals-text">(Campo opcional)</span>
+          <span className="vinyl-form__optionals-text">(Opcional)</span>
         </div>
         <input
           value={vinylData.purchasedAt}
@@ -244,7 +265,7 @@ const VinylForm: React.FC<VinylFormProps> = ({ action }) => {
         type="submit"
         disabled={!isFormValid}
       >
-        Añadir vinilo
+        {buttonText}
       </Button>
     </form>
   );
