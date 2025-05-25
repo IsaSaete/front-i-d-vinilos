@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Modal from "./Modal";
 import userEvent from "@testing-library/user-event";
+import Modal from "./Modal";
 
 describe("Given the Modal component", () => {
   describe("When it receives an action and a text 'Todo bien'", () => {

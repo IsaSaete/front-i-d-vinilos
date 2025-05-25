@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
+import { http, HttpResponse } from "msw";
 import VinylsPage from "./VinylsPage";
 import store from "../../../store/store";
 import {
@@ -10,7 +11,6 @@ import {
   vinylsFixturesDto,
 } from "../../dto/fixturesDto";
 import { server } from "../../mocks/node";
-import { http, HttpResponse } from "msw";
 import type { VinylDto } from "../../dto/types";
 
 describe("Given de VinylsPage component", () => {
