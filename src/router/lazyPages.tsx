@@ -15,5 +15,5 @@ export const LazyDetailVinylPage = lazy(
 );
 
 export const LazyModifyVinylPage = lazy(
-  () => import("../vinyl/pages/ModifyVinylPage/ModifyVinylPage"),
+  () => import("../vinyl/pages/UpdateVinylPage/UpdateVinylPage"),
 );
