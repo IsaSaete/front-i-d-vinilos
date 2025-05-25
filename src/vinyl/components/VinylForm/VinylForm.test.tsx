@@ -172,10 +172,27 @@ describe("Given the VinylForm component", () => {
 
         expect(ownedCheckbox).toBeChecked();
       });
+
+      test("Then it should show the 'Comprado en' textbox", async () => {
+        const expectedLabel = /lo tengo/i;
+
+        render(
+          <VinylForm addVinyl={action} initialVinylData={initialVinylData} />,
+          { wrapper: MemoryRouter },
+        );
+
+        const ownedCheckbox = screen.getByLabelText(expectedLabel);
+
+        await userEvent.click(ownedCheckbox);
+
+        const purchasedAtTextBox = screen.getByLabelText(expectedLabel);
+
+        expect(purchasedAtTextBox).toBeInTheDocument();
+      });
     });
 
     describe("And the user doesn't click on 'Lo tengo' checkbox", () => {
-      test("Then it should show the 'Comprado en' textbox disabled", () => {
+      test("Then it shouldn't show the 'Comprado en' textbox", () => {
         const expectedLabel = /comprado en/i;
 
         render(
@@ -183,9 +200,9 @@ describe("Given the VinylForm component", () => {
           { wrapper: MemoryRouter },
         );
 
-        const purchasedAtTextBox = screen.getByLabelText(expectedLabel);
+        const purchasedAtTextBox = screen.queryByLabelText(expectedLabel);
 
-        expect(purchasedAtTextBox).toBeDisabled();
+        expect(purchasedAtTextBox).not.toBeInTheDocument();
       });
     });
 
