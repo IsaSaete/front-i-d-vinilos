@@ -9,8 +9,8 @@ const Loader: React.FC = () => {
         className="loader loader"
         src="/vinyl-icon.svg"
         alt="Vinilo girando"
-        width={50}
-        height={50}
+        width={300}
+        height={300}
       />
     </div>
   );
