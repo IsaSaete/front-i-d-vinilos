@@ -55,8 +55,6 @@ const VinylForm: React.FC<VinylFormProps> = ({
     }));
   };
 
-  const opacityClass = vinylData.isOwned ? "" : "--opacity";
-
   const isFormValid =
     vinylData.artist !== "" &&
     vinylData.title !== "" &&
@@ -163,7 +161,7 @@ const VinylForm: React.FC<VinylFormProps> = ({
             required
           >
             <option value="" disabled>
-              {}
+              Formato
             </option>
             <option value={"7''"}>7''</option>
             <option value={"12''"}>12''</option>
@@ -229,36 +227,40 @@ const VinylForm: React.FC<VinylFormProps> = ({
           className="vinyl-form__control"
         />
       </div>
-      <div className={`vinyl-form__group vinyl-form__group${opacityClass}`}>
-        <div className="vinyl-form__optionals">
-          <label htmlFor="purchasedAt" className="vinyl-form__text">
-            Comprado en:
+      <div className="vinyl-form__owned-group">
+        <div className="vinyl-form__checkbox-group">
+          <label
+            htmlFor="isOwned"
+            className="vinyl-form__text  vinyl-form__text--checkbox "
+          >
+            Lo tengo:
           </label>
-          <span className="vinyl-form__optionals-text">(Opcional)</span>
+          <input
+            checked={vinylData.isOwned}
+            onChange={checkboxChange}
+            id="isOwned"
+            type="checkbox"
+            className="vinyl-form__checkbox"
+          />
         </div>
-        <input
-          value={vinylData.purchasedAt}
-          onChange={changeVinylData}
-          id="purchasedAt"
-          type="text"
-          className="vinyl-form__control"
-          disabled={!vinylData.isOwned}
-        />
-      </div>
-      <div className="vinyl-form__checkbox-group">
-        <label
-          htmlFor="isOwned"
-          className="vinyl-form__text  vinyl-form__text--checkbox "
-        >
-          Lo tengo:
-        </label>
-        <input
-          checked={vinylData.isOwned}
-          onChange={checkboxChange}
-          id="isOwned"
-          type="checkbox"
-          className="vinyl-form__checkbox"
-        />
+        {vinylData.isOwned && (
+          <div className="vinyl-form__group">
+            <div className="vinyl-form__optionals">
+              <label htmlFor="purchasedAt" className="vinyl-form__text">
+                Comprado en:
+              </label>
+              <span className="vinyl-form__optionals-text">(Opcional)</span>
+            </div>
+            <input
+              value={vinylData.purchasedAt}
+              onChange={changeVinylData}
+              id="purchasedAt"
+              type="text"
+              className="vinyl-form__control"
+              disabled={!vinylData.isOwned}
+            />
+          </div>
+        )}
       </div>
       <Button
         classNameModifier="form"
