@@ -19,14 +19,11 @@ export const mapVinylFormDataToVinySend = ({
   releaseDate,
   ...formData
 }: VinylFormData): VinylSendFormData => {
-  const stylesArray = styles
-    ? styles
-        .replaceAll(/[.,;#|/]/g, " ")
-        .replaceAll(/\s+/g, " ")
-        .trim()
-        .split(" ")
-        .filter((style) => style !== "")
-    : [];
+  const cleanedStyles = styles
+    ? styles.replaceAll(/[.;#|/]/g, ", ").replaceAll(/(,(?!\s))/g, ", ")
+    : "";
+
+  const stylesArray = cleanedStyles.split(", ");
 
   return {
     ...formData,

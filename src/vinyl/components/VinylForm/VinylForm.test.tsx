@@ -226,6 +226,7 @@ describe("Given the VinylForm component", () => {
         const genreTextBox = screen.getByLabelText(/género/i);
         const formatTextBox = screen.getByLabelText(/formato/i);
         const coverImageUrlTextBox = screen.getByLabelText(/imagen url/i);
+        const stylesTextBox = screen.getByLabelText(/estilo/i);
 
         await userEvent.type(titleTextBox, "Marinero de Luces");
         await userEvent.type(artistTextBox, "Isabel Pantoja");
@@ -237,6 +238,7 @@ describe("Given the VinylForm component", () => {
           coverImageUrlTextBox,
           "https://example.com/marinero-de-luces.jpg",
         );
+        await userEvent.type(stylesTextBox, " ");
 
         const addButton = screen.getByRole("button", {
           name: expectedButtonText,
@@ -264,6 +266,7 @@ describe("Given the VinylForm component", () => {
           const genreTextBox = screen.getByLabelText(/género/i);
           const formatTextBox = screen.getByLabelText(/formato/i);
           const coverImageUrlTextBox = screen.getByLabelText(/imagen url/i);
+          const stylesTextBox = screen.getByLabelText(/estilo/i);
 
           await userEvent.type(titleTextBox, "Marinero de Luces");
           await userEvent.type(artistTextBox, "Isabel Pantoja");
@@ -274,6 +277,10 @@ describe("Given the VinylForm component", () => {
           await userEvent.type(
             coverImageUrlTextBox,
             "https://example.com/marinero-de-luces.jpg",
+          );
+          await userEvent.type(
+            stylesTextBox,
+            "Copla,Cancion española, bolero)",
           );
 
           const addButton = screen.getByRole("button", {
