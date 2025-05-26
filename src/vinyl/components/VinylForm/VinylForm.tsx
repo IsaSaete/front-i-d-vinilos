@@ -36,22 +36,13 @@ const VinylForm: React.FC<VinylFormProps> = ({
     }));
   };
 
-  const changeStylesData = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const stylesInput = event.target.value;
-
-    const vinylStyles = stylesInput
-      .replaceAll(/[.,;#|/]/g, "")
-      .split(" ")
-      .slice(0, 3)
-      .join(", ");
-
-    setVinylData((vinylData) => ({ ...vinylData, styles: vinylStyles }));
-  };
-
   const checkboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const isChecked = event.target.checked;
+
     setVinylData((vinylData) => ({
       ...vinylData,
-      [event.target.id]: event.target.checked,
+      isOwned: isChecked,
+      purchasedAt: isChecked ? vinylData.purchasedAt : "",
     }));
   };
 
@@ -161,7 +152,7 @@ const VinylForm: React.FC<VinylFormProps> = ({
             required
           >
             <option value="" disabled>
-              Formato
+              Selecciona
             </option>
             <option value={"7''"}>7''</option>
             <option value={"12''"}>12''</option>
@@ -199,11 +190,11 @@ const VinylForm: React.FC<VinylFormProps> = ({
           <label htmlFor="styles" className="vinyl-form__text">
             Estilo:
           </label>
-          <span className="vinyl-form__optionals-text">(Opcional, máx. 3)</span>
+          <span className="vinyl-form__optionals-text">(Opcional)</span>
         </div>
         <input
           value={vinylData.styles}
-          onChange={changeStylesData}
+          onChange={changeVinylData}
           id="styles"
           type="text"
           className="vinyl-form__control"
