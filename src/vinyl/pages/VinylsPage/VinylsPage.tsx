@@ -34,9 +34,9 @@ const VinylsPage: React.FC = () => {
 
   return (
     <>
-      <header className="header-content">
-        <h1 className="page-title">Vinilos</h1>
-        <span className="page-counter">
+      <header className="vinyls-page__header">
+        <h1 className="vinyls-page__title">Vinilos</h1>
+        <span className="vinyls-page__counter ">
           {vinylsByPage}/{vinylsTotal}
         </span>
       </header>
