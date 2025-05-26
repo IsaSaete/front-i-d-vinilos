@@ -26,7 +26,7 @@ const VinylDetail: React.FC<VinylDetailProps> = ({ vinyl }) => {
   return (
     <>
       <div>
-        <h2 className="vinyl__title">{vinyl.title}</h2>
+        <h2 className="vinyl-detail__title">{vinyl.title}</h2>
         <h3 className="vinyl__artist">{vinyl.artist}</h3>
       </div>
       <img

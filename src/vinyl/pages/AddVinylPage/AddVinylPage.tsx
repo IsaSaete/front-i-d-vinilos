@@ -1,7 +1,6 @@
 import type { VinylFormData } from "../../../types";
 import VinylForm from "../../components/VinylForm/VinylForm";
 import useVinyls from "../../hooks/useVinyls";
-import "./AddVinylPage.css";
 
 const AddVinylPage: React.FC = () => {
   const { addNewVinyl } = useVinyls();
@@ -22,12 +21,14 @@ const AddVinylPage: React.FC = () => {
 
   return (
     <>
-      <h1 className="page-addtitle">Añade un vinilo</h1>
-      <VinylForm
-        initialVinylData={initialVinylData}
-        exists={false}
-        addVinyl={addNewVinyl}
-      />
+      <h1 className="page-title">Añade un vinilo</h1>
+      <div className="content">
+        <VinylForm
+          initialVinylData={initialVinylData}
+          exists={false}
+          addVinyl={addNewVinyl}
+        />
+      </div>
     </>
   );
 };

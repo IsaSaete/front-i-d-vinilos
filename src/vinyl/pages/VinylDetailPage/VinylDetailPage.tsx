@@ -5,7 +5,6 @@ import { useAppSelector } from "../../../store/hooks";
 import useLoading from "../../../hooks/useLoading";
 import Loader from "../../../components/Loader/Loader";
 import VinylDetail from "../../components/VinylDetail/VinylDetail";
-import "./VinylDetailPage.css";
 
 const VinylDetailPage: React.FC = () => {
   const { getVinylById } = useVinyls();
@@ -34,7 +33,7 @@ const VinylDetailPage: React.FC = () => {
 
   return (
     <>
-      <h1 className="title-page">Info</h1>
+      <h1 className="page-title">Info</h1>
       <VinylDetail vinyl={vinyl} />
     </>
   );

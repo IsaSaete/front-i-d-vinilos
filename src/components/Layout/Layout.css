@@ -7,3 +7,15 @@
   padding: 95px 20px 40px 20px;
   min-height: 100dvh;
 }
+
+.page-title {
+  font-size: 1.875rem;
+  line-height: 28px;
+  color: var(--main-color);
+  border-bottom: 2px solid var(--main-color);
+  font-weight: 600;
+}
+
+.content {
+  margin-top: 15px;
+}

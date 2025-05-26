@@ -5,7 +5,7 @@ import store from "../../../store/store";
 import { aquellosOjosVerdes } from "../../fixtures";
 import AppTestRouter from "../../../router/AppTestRouter";
 
-describe("Givne the ModifyVinylPage component", () => {
+describe("Given the ModifyVinylPage component", () => {
   describe("When it renders in path /modificar-vinilo/14fbf39d8c9d1e4dabc5f1e1", () => {
     test("Then it should show 'Modifica el vinilo' inside a level 1 heading", async () => {
       const expectedTitle = /modifica el vinilo/i;

@@ -4,7 +4,6 @@ import VinylForm from "../../components/VinylForm/VinylForm";
 import useVinyls from "../../hooks/useVinyls";
 import type { VinylFormData } from "../../../types";
 import { useAppSelector } from "../../../store/hooks";
-import "./UpdateVinylPage.css";
 
 const UpdateVinylPage: React.FC = () => {
   const { id: vinylId } = useParams<{ id: string }>();
@@ -41,13 +40,15 @@ const UpdateVinylPage: React.FC = () => {
 
     return (
       <>
-        <h1 className="page-updatetitle">Modifica el vinilo</h1>
-        <VinylForm
-          initialVinylData={initialVinylData}
-          exists={true}
-          vinylId={vinylId}
-          updateVinyl={updateVinyl}
-        />
+        <h1 className="page-title">Modifica el vinilo</h1>
+        <div className="content">
+          <VinylForm
+            initialVinylData={initialVinylData}
+            exists={true}
+            vinylId={vinylId}
+            updateVinyl={updateVinyl}
+          />
+        </div>
       </>
     );
   }

@@ -1,17 +1,17 @@
-.header-content {
+.vinyls-page__header {
   display: flex;
   border-bottom: 2px solid var(--main-color);
   line-height: 28px;
   justify-content: space-between;
 }
 
-.page-title {
+.vinyls-page__title {
   font-size: 1.875rem;
   color: var(--main-color);
   font-weight: 600;
 }
 
-.page-counter {
+.vinyls-page__counter {
   font-size: 1.5rem;
   color: var(--main-color);
   font-weight: 400;
