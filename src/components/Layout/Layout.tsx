@@ -3,6 +3,7 @@ import Modal from "../Modal/Modal";
 import useModal from "../../hooks/useModal";
 import Header from "../Header/Header";
 import "./Layout.css";
+import Footer from "../Footer/Footer";
 
 const Layout: React.FC = () => {
   const {
@@ -16,6 +17,7 @@ const Layout: React.FC = () => {
       <main className="page-container">
         <Outlet />
       </main>
+      <Footer />
       {isOpen && (
         <Modal isSuccess={isSuccess} action={closeModal} text={text} />
       )}
