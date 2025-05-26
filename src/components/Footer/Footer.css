@@ -1,0 +1,8 @@
+.footer-content {
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
