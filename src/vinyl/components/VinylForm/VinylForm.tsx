@@ -190,7 +190,9 @@ const VinylForm: React.FC<VinylFormProps> = ({
           <label htmlFor="styles" className="vinyl-form__text">
             Estilo:
           </label>
-          <span className="vinyl-form__optionals-text">(Opcional)</span>
+          <span className="vinyl-form__optionals-text">
+            (Opcional, separado por comas)
+          </span>
         </div>
         <input
           value={vinylData.styles}
