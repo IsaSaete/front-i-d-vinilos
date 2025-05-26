@@ -23,6 +23,7 @@ const Modal: React.FC<ModalProps> = ({ action, isSuccess, text }) => {
         </Button>
         <h2 className="modal__text">{text}</h2>
       </div>
+      <button onClick={action} className="modal-background" />
     </dialog>
   );
 };
