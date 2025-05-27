@@ -1,4 +1,4 @@
-import { Navigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { useEffect } from "react";
 import useVinyls from "../../hooks/useVinyls";
 import { useAppSelector } from "../../../store/hooks";
@@ -27,16 +27,14 @@ const VinylDetailPage: React.FC = () => {
     return <Loader />;
   }
 
-  if (!vinyl) {
-    return <Navigate to={"/"} />;
+  if (vinyl) {
+    return (
+      <>
+        <h1 className="page-title">Info</h1>
+        <VinylDetail vinyl={vinyl} />
+      </>
+    );
   }
-
-  return (
-    <>
-      <h1 className="page-title">Info</h1>
-      <VinylDetail vinyl={vinyl} />
-    </>
-  );
 };
 
 export default VinylDetailPage;
