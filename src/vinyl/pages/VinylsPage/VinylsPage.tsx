@@ -1,10 +1,10 @@
 import { useSearchParams } from "react-router";
 import { useEffect } from "react";
 import useVinyls from "../../hooks/useVinyls";
-import Loader from "../../../components/Loader/Loader";
+import Loader from "../../../ui/components/Loader/Loader";
 import VinylsList from "../../components/VinylsList/VinylsList";
-import Pagination from "../../../components/Pagination/Pagination";
-import useLoading from "../../../hooks/useLoading";
+import Pagination from "../../../ui/components/Pagination/Pagination";
+import useLoading from "../../../ui/hooks/useLoading";
 import "./VinylsPage.css";
 
 const VinylsPage: React.FC = () => {

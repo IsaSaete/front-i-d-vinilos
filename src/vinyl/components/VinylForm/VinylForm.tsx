@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import Button from "../../../components/Button/Button";
+import Button from "../../../ui/components/Button/Button";
 import type { VinylFormData, VinylSendFormData } from "../../../types";
 import { mapVinylFormDataToVinylSend } from "../../dto/mapper";
 import "./VinylForm.css";

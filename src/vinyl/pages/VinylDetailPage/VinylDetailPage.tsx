@@ -2,9 +2,9 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import useVinyls from "../../hooks/useVinyls";
 import { useAppSelector } from "../../../store/hooks";
-import useLoading from "../../../hooks/useLoading";
-import Loader from "../../../components/Loader/Loader";
+import Loader from "../../../ui/components/Loader/Loader";
 import VinylDetail from "../../components/VinylDetail/VinylDetail";
+import useLoading from "../../../ui/hooks/useLoading";
 
 const VinylDetailPage: React.FC = () => {
   const { getVinylById } = useVinyls();

@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import { act, renderHook } from "@testing-library/react";
-import store from "../../store/store";
 import useModal from "../useModal";
+import store from "../../../store/store";
 
 describe("Given the showModal function", () => {
   describe("When it's called with a true and 'Todo bien'", () => {
