@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import Button from "../../../components/Button/Button";
+import Button from "../../../ui/components/Button/Button";
 import type { Vinyl } from "../../../types";
 import useVinyls from "../../hooks/useVinyls";
 import "./VinylDetail.css";

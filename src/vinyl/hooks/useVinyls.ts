@@ -12,8 +12,8 @@ import {
   updatedVinylCreator,
 } from "../slice/vinylSlice";
 import type { VinylSendFormData } from "../../types";
-import useModal from "../../hooks/useModal";
-import useLoading from "../../hooks/useLoading";
+import useModal from "../../ui/hooks/useModal";
+import useLoading from "../../ui/hooks/useLoading";
 
 const useVinyls = () => {
   const navigate = useNavigate();

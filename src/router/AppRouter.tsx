@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router";
-import App from "../components/App/App";
+import App from "../ui/components/App/App";
 import {
   LazyAddVinylPage,
   LazyDetailVinylPage,

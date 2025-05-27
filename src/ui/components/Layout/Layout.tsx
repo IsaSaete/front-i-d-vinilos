@@ -1,9 +1,9 @@
 import { Outlet } from "react-router";
-import useModal from "../../ui/hooks/useModal";
-import Header from "../../ui/components/Header/Header";
-import Footer from "../../ui/components/Footer/Footer";
-import Modal from "../../ui/components/Modal/Modal";
+import Modal from "../Modal/Modal";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import "./Layout.css";
+import useModal from "../../hooks/useModal";
 
 const Layout: React.FC = () => {
   const {

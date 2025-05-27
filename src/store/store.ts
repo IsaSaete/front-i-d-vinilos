@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { vinylReducer } from "../vinyl/slice/vinylSlice";
-import { feedbackReducer } from "../slices/feedbackSlice";
+import { feedbackReducer } from "../ui/slices/feedbackSlice";
 
 const store = configureStore({
   reducer: {

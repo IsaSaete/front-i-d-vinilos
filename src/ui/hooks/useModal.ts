@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useCallback } from "react";
+import { useAppSelector } from "../../store/hooks";
 import { closeModalCreator, openModalCreator } from "../slices/feedbackSlice";
-import { useAppSelector } from "../store/hooks";
 
 const useModal = () => {
   const modal = useAppSelector((state) => state.feedback.modal);

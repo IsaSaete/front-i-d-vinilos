@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import Pagination from "./Pagination";
-import { vinylsTestData } from "../../vinyl/fixtures";
+import { vinylsTestData } from "../../../vinyl/fixtures";
 
 describe("Given the Pagination component", () => {
   describe("When it renders", () =>

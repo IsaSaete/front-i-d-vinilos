@@ -3,8 +3,8 @@ import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import Layout from "./Layout";
-import store from "../../store/store";
-import AppTestRouter from "../../router/AppTestRouter";
+import store from "../../../store/store";
+import AppTestRouter from "../../../router/AppTestRouter";
 
 describe("Given the Layout component", () => {
   describe("When it renders", () => {
