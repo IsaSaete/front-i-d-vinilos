@@ -11,7 +11,9 @@ const UpdateVinylPage: React.FC = () => {
   const { getVinylById, updateVinyl } = useVinyls();
 
   const vinyl = useAppSelector((state) =>
-    state.vinyls.vinylCollection.vinyls.find((vinyl) => vinyl.id === vinylId),
+    state.vinylsInfo.vinylCollection.vinyls.find(
+      (vinyl) => vinyl.id === vinylId,
+    ),
   );
 
   useEffect(() => {

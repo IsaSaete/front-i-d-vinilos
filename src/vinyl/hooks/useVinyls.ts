@@ -21,7 +21,7 @@ const useVinyls = () => {
   const { endLoading, startLoading } = useLoading();
 
   const vinylCollection = useAppSelector(
-    (state) => state.vinyls.vinylCollection,
+    (state) => state.vinylsInfo.vinylCollection,
   );
 
   const dispatch = useDispatch();

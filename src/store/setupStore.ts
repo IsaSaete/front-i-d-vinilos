@@ -3,11 +3,11 @@ import type { VinylState } from "../vinyl/slice/types";
 import { vinylReducer } from "../vinyl/slice/vinylSlice";
 import { feedbackReducer } from "../ui/slices/feedbackSlice";
 
-type RootState = { vinyls: VinylState };
+type RootState = { vinylsInfo: VinylState };
 
 const setupStore = (preloadedState?: RootState) => {
   return configureStore({
-    reducer: { vinyls: vinylReducer, feedback: feedbackReducer },
+    reducer: { vinylsInfo: vinylReducer, feedback: feedbackReducer },
     preloadedState,
   });
 };
