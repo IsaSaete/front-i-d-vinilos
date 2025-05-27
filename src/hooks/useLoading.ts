@@ -1,10 +1,13 @@
 import { useDispatch } from "react-redux";
 import { useCallback } from "react";
 import { useAppSelector } from "../store/hooks";
-import { endLoadingCreator, startLoadingCreator } from "../slices/loadingSlice";
+import {
+  endLoadingCreator,
+  startLoadingCreator,
+} from "../slices/feedbackSlice";
 
 const useLoading = () => {
-  const loadingState = useAppSelector((state) => state.loading);
+  const loadingState = useAppSelector((state) => state.feedback.loading);
 
   const dispatch = useDispatch();
 

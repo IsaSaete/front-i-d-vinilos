@@ -14,7 +14,7 @@ export const mapVinylDtotoVinyl = ({ _id, ...vinylDto }: VinylDto): Vinyl => {
   return vinyl;
 };
 
-export const mapVinylFormDataToVinySend = ({
+export const mapVinylFormDataToVinylSend = ({
   styles,
   releaseDate,
   ...formData

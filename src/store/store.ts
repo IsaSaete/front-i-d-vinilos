@@ -1,13 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { vinylReducer } from "../vinyl/slice/vinylSlice";
-import { modalReducer } from "../slices/modalSlice";
-import { loadingReducer } from "../slices/loadingSlice";
+import { feedbackReducer } from "../slices/feedbackSlice";
 
 const store = configureStore({
   reducer: {
     vinyls: vinylReducer,
-    modal: modalReducer,
-    loading: loadingReducer,
+    feedback: feedbackReducer,
   },
 });
 
