@@ -39,7 +39,7 @@
 }
 
 .vinyl-form__optionals-text {
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 4vw, 1rem);
 }
 
 .vinyl-form__checkbox-group {
