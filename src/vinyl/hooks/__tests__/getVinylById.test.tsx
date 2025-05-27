@@ -15,7 +15,7 @@ describe("Given the getVinylById function", () => {
       const initialState: VinylState = {
         vinylCollection: { vinyls: [], vinylsTotal: 0 },
       };
-      const store = setupStore({ vinyls: initialState });
+      const store = setupStore({ vinylsInfo: initialState });
 
       const wrapper = ({ children }: { children: React.ReactNode }) => (
         <MemoryRouter>

@@ -20,7 +20,9 @@ const VinylDetailPage: React.FC = () => {
   }, [vinylId, getVinylById]);
 
   const vinyl = useAppSelector((state) =>
-    state.vinyls.vinylCollection.vinyls.find((vinyl) => vinyl.id === vinylId),
+    state.vinylsInfo.vinylCollection.vinyls.find(
+      (vinyl) => vinyl.id === vinylId,
+    ),
   );
 
   if (isLoading) {

@@ -26,7 +26,7 @@ describe("Given the deleteVinylById function", () => {
         },
       };
 
-      const store = setupStore({ vinyls: initialState });
+      const store = setupStore({ vinylsInfo: initialState });
 
       const wrapper = ({ children }: { children: React.ReactNode }) => (
         <MemoryRouter>

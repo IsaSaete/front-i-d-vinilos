@@ -4,7 +4,7 @@ import { feedbackReducer } from "../ui/slices/feedbackSlice";
 
 const store = configureStore({
   reducer: {
-    vinyls: vinylReducer,
+    vinylsInfo: vinylReducer,
     feedback: feedbackReducer,
   },
 });
