@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "../../../components/Button/Button";
 import type { VinylFormData, VinylSendFormData } from "../../../types";
-import { mapVinylFormDataToVinySend } from "../../dto/mapper";
+import { mapVinylFormDataToVinylSend } from "../../dto/mapper";
 import "./VinylForm.css";
 
 interface VinylFormProps {
@@ -62,7 +62,7 @@ const VinylForm: React.FC<VinylFormProps> = ({
   ): Promise<void> => {
     event.preventDefault();
 
-    const newVinyl = mapVinylFormDataToVinySend(vinylData);
+    const newVinyl = mapVinylFormDataToVinylSend(vinylData);
 
     await addVinyl!(newVinyl);
     navigate("/");
@@ -73,7 +73,7 @@ const VinylForm: React.FC<VinylFormProps> = ({
   ): Promise<void> => {
     event.preventDefault();
 
-    const newVinyl = mapVinylFormDataToVinySend(vinylData);
+    const newVinyl = mapVinylFormDataToVinylSend(vinylData);
 
     await updateVinyl!(vinylId!, newVinyl);
     navigate(-1);

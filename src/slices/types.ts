@@ -12,3 +12,8 @@ export type OpenModal = {
 export type LoadingState = {
   isLoading: boolean;
 };
+
+export type feedbackState = {
+  modal: ModalState;
+  loading: LoadingState;
+};
