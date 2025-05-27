@@ -23,6 +23,8 @@ const VinylDetail: React.FC<VinylDetailProps> = ({ vinyl }) => {
 
   const releaseDate = new Date(vinyl.releaseDate).toLocaleDateString("es-ES");
 
+  const owned = vinyl.isOwned ? "Lo tengo" : "No lo tengo";
+
   return (
     <>
       <div>
@@ -55,12 +57,13 @@ const VinylDetail: React.FC<VinylDetailProps> = ({ vinyl }) => {
         <li className="vinyl__info-item">
           País: <span className="vinyl__info-data">{vinyl.country}</span>
         </li>
-        {vinyl.purchasedAt && (
+        {vinyl.purchasedAt && vinyl.isOwned && (
           <li className="vinyl__info-item">
             Comprado en:{" "}
             <span className="vinyl__info-data">{vinyl.purchasedAt}</span>
           </li>
         )}
+        <li className="vinyl__info-item">{owned}</li>
       </ul>
       {vinyl.notes && <p className="vinyl__notes">{vinyl.notes}</p>}
 
