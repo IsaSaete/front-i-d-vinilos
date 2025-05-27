@@ -4,9 +4,14 @@ import VinylForm from "../../components/VinylForm/VinylForm";
 import useVinyls from "../../hooks/useVinyls";
 import type { VinylFormData } from "../../../types";
 import { useAppSelector } from "../../../store/hooks";
+import useLoading from "../../../ui/hooks/useLoading";
+import Loader from "../../../ui/components/Loader/Loader";
 
 const UpdateVinylPage: React.FC = () => {
   const { id: vinylId } = useParams<{ id: string }>();
+  const {
+    loadingState: { isLoading },
+  } = useLoading();
 
   const { getVinylById, updateVinyl } = useVinyls();
 
@@ -39,6 +44,10 @@ const UpdateVinylPage: React.FC = () => {
       purchasedAt: vinyl.purchasedAt,
       isOwned: vinyl.isOwned,
     };
+
+    if (isLoading) {
+      return <Loader />;
+    }
 
     return (
       <>
