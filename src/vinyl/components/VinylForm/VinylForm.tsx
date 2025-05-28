@@ -152,7 +152,7 @@ const VinylForm: React.FC<VinylFormProps> = ({
             required
           >
             <option value="" disabled>
-              Selecciona
+              Elige
             </option>
             <option value={"7''"}>7''</option>
             <option value={"12''"}>12''</option>
