@@ -9,7 +9,7 @@ import { aquellosOjosVerdes } from "../../../vinyl/fixtures";
 
 describe("Given the Layout component", () => {
   describe("When it renders", () => {
-    test("Then it should show a logo that says 'VINILOS'", async () => {
+    test("Then it should show a link with a label text 'Página principal de vinilos", async () => {
       render(
         <Provider store={store}>
           <Layout />
@@ -17,11 +17,11 @@ describe("Given the Layout component", () => {
         { wrapper: MemoryRouter },
       );
 
-      const expectedAltTextImage = /vinilos/i;
+      const expectedLabelText = /página principal de vinilos/i;
 
-      const image = await screen.findByAltText(expectedAltTextImage);
+      const linkLabel = await screen.findByLabelText(expectedLabelText);
 
-      expect(image).toBeInTheDocument();
+      expect(linkLabel).toBeInTheDocument();
     });
 
     test("Then it should show a 'Listado' link", () => {
@@ -87,7 +87,7 @@ describe("Given the Layout component", () => {
     });
   });
 
-  describe("When it render in path /vinilos?page=2", () => {
+  describe("When it renders in path /vinilos?page=2", () => {
     describe("And the user clicks the link 'Ir a la página siguiente'", () => {
       test("Then it should show 'LP5' inside a heading", async () => {
         const expectedPreviousLinkText = /ir a la página anterior/i;
