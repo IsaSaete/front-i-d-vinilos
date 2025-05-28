@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import type { VinylFormData } from "../../../types";
 import VinylForm from "../../components/VinylForm/VinylForm";
 import useVinyls from "../../hooks/useVinyls";
 
 const AddVinylPage: React.FC = () => {
   const { addNewVinyl } = useVinyls();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
   const initialVinylData: VinylFormData = {
     title: "",
