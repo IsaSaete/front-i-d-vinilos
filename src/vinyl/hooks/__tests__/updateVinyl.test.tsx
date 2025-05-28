@@ -2,7 +2,7 @@ import { MemoryRouter } from "react-router";
 import { Provider } from "react-redux";
 import { act, renderHook } from "@testing-library/react";
 import setupStore from "../../../store/setupStore";
-import { sanctuary, sanctuaryData, sanctuaryUpdated } from "../../fixtures";
+import { sanctuary, sanctuaryUpdated } from "../../fixtures";
 import type { VinylState } from "../../slice/types";
 import useVinyls from "../useVinyls";
 
@@ -24,7 +24,7 @@ describe("Given the updateVinyl function", () => {
       const { result } = renderHook(() => useVinyls(), { wrapper: wrapper });
 
       await act(async () => {
-        result.current.updateVinyl(sanctuary.id, sanctuaryData);
+        result.current.updateVinyl(sanctuary.id, sanctuaryUpdated);
       });
 
       const vinyls = result.current.vinylCollection.vinyls;

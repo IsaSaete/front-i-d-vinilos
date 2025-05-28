@@ -87,6 +87,7 @@ const VinylForm: React.FC<VinylFormProps> = ({
     const newVinyl = mapVinylToVinylDto(vinyl);
 
     await updateVinyl!(vinylId!, newVinyl);
+
     navigate(-1);
   };
 

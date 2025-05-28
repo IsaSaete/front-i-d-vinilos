@@ -107,4 +107,10 @@ export const handlers = [
       vinyl: sanctuaryUpdated,
     });
   }),
+
+  http.put(`${apiUrl}/vinyls/${aquellosOjosVerdes.id}`, () => {
+    return HttpResponse.json<{ vinyl: VinylDto }>({
+      vinyl: aquellosOjosVerdesDto,
+    });
+  }),
 ];

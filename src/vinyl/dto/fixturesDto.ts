@@ -256,3 +256,18 @@ export const weStillBelieveNotOwnedDto: VinylDto = {
     "Una pieza que conecta el espíritu del techno clásico con el activismo contemporáneo.",
   isOwned: true,
 };
+
+export const sanctuaryDto: VinylDto = {
+  _id: "12abf39d8c9d1e4dabc5b5a1",
+  title: "Sanctuary",
+  artist: "Octo Octa",
+  country: "USA",
+  releaseDate: "2019-08-02",
+  genre: "House",
+  format: '12"',
+  coverImageUrl: "https://example.com/sanctuary.jpg",
+  styles: ["Breakbeat", "Deep House"],
+  notes:
+    "Un viaje sonoro introspectivo que mezcla breakbeats cálidos con melodías envolventes, explorando identidad y libertad.",
+  isOwned: true,
+};
