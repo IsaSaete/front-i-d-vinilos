@@ -1,5 +1,6 @@
 import type { Vinyl, VinylSendFormData } from "../../types";
 import { mapVinylDtotoVinyl, mapVinylsDtoToVinyls } from "../dto/mapper";
+import type { VinylDto } from "../dto/types";
 import type {
   ResponseVinylDto,
   VinylClientStructure,
@@ -105,7 +106,7 @@ class VinylClient implements VinylClientStructure {
 
   public updateVinyl = async (
     vinylId: string,
-    vinylToUpdate: VinylSendFormData,
+    vinylToUpdate: VinylDto,
   ): Promise<Vinyl> => {
     const response = await fetch(`${this.apiUrl}/vinyls/${vinylId}`, {
       method: "PUT",

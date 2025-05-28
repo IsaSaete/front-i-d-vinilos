@@ -13,8 +13,13 @@ export interface Vinyl {
   isOwned: boolean;
 }
 
-export type VinylFormData = Omit<Vinyl, "id" | "styles"> & { styles: string };
+export type VinylFormData = Omit<Vinyl, "id" | "styles"> & {
+  styles: string;
+  id?: string;
+};
 
 export type VinylSendFormData = Omit<Vinyl, "id" | "releaseDate"> & {
   releaseDate: Date;
 };
+
+export type VinylUpdated = Omit<Vinyl, "styles"> & { styles: string };

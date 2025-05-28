@@ -1,18 +1,20 @@
 import { http, HttpResponse } from "msw";
-import { weStillBelieve } from "../../dto/fixturesDto";
+import {
+  weStillBelieve,
+  weStillBelieveNotOwnedDto,
+} from "../../dto/fixturesDto";
 import { mapVinylDtotoVinyl } from "../../dto/mapper";
-import { weStillBelieveData } from "../../fixtures";
 import { server } from "../../mocks/node";
 import VinylClient from "../VinylClient";
 
 describe("Given the updateVinyl method of VinylCliente", () => {
-  describe("When it's called with Aquellos ojos verdes id and modified data", () => {
-    test("Then it should return Aquellos ojos verde with the new data", async () => {
+  describe("When it's called with We still Believe id and modified data", () => {
+    test("Then it should return We still Believe with the new data", async () => {
       const vinylClient = new VinylClient();
 
       const vinylToUpdate = await vinylClient.updateVinyl(
         weStillBelieve._id,
-        weStillBelieveData,
+        weStillBelieveNotOwnedDto,
       );
 
       const vinyl = mapVinylDtotoVinyl(weStillBelieve);
@@ -36,7 +38,7 @@ describe("Given the updateVinyl method of VinylCliente", () => {
 
       const foundVinyl = vinylClient.updateVinyl(
         weStillBelieve._id,
-        weStillBelieveData,
+        weStillBelieveNotOwnedDto,
       );
 
       expect(foundVinyl).rejects.toThrow(expectedErrorMessage);

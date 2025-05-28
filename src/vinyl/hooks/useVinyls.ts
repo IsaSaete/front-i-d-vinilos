@@ -14,6 +14,7 @@ import {
 import type { VinylSendFormData } from "../../types";
 import useModal from "../../ui/hooks/useModal";
 import useLoading from "../../ui/hooks/useLoading";
+import type { VinylDto } from "../dto/types";
 
 const useVinyls = () => {
   const navigate = useNavigate();
@@ -117,7 +118,7 @@ const useVinyls = () => {
 
   const updateVinyl = async (
     vinylId: string,
-    vinyl: VinylSendFormData,
+    vinyl: VinylDto,
   ): Promise<void> => {
     const timeout = setTimeout(() => startLoading(), 200);
 
