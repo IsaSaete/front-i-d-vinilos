@@ -39,23 +39,37 @@ The app implements a complete **CRUD** system for the `vinyl` entity:
 ## 📁 Project Structure
 
 ```bash
-src/
-│
-├── components/          # Shared components like Header, Footer, Layout
-├── hooks/               # Custom hooks
-├── pages/               # General pages (e.g. NotFound)
-├── router/              # Main routing
-├── slices/              # Global Redux slices (e.g. feedback)
-├── store/               # Redux Toolkit configuration
-├── styles/              # Global styles
-├── vinyl/               # Main feature: vinyl management
-│   ├── client/          # API client for vinyl endpoints
-│   ├── components/      # Vinyl-related UI components
-│   ├── hooks/           # Vinyl-specific hooks
-│   ├── pages/           # Pages like VinylsPage, VinylDetailPage
-│   ├── dto/             # Data transformers and types
-│   └── mocks/           # MSW mocks for testing
-└── main.tsx             # App entry point
+├── .github/ # GitHub Actions workflows for CI/CD
+├── .husky/ # Git hooks integrated with lint-staged and commitlint
+├── public/ # Static assets (favicon, icons, redirects, robots.txt)
+├── src/ # Application source code (frontend)
+│ ├── router/ # React Router configuration
+│ ├── store/ # Redux Toolkit setup (global state management)
+│ ├── styles/ # Global CSS styles
+│ ├── types.ts # Global TypeScript types
+│ ├── ui/ # Reusable UI components and interface pages
+│ │ ├── components/ # Atomic and composite UI components
+│ │ ├── hooks/ # Custom UI-related hooks
+│ │ ├── pages/ # Main UI views (e.g. NotFound)
+│ │ └── slices/ # UI-related Redux slices
+│ ├── vinyl/ # Main feature module (e.g. vinyl records)
+│ │ ├── client/ # API client for backend communication
+│ │ ├── components/ # Domain-specific components
+│ │ ├── dto/ # DTOs and mappers for data shaping
+│ │ ├── hooks/ # Custom domain-specific hooks
+│ │ ├── mocks/ # MSW handlers and mocks for testing
+│ │ ├── pages/ # Feature-specific pages
+│ │ └── slice/ # Redux slices for feature domain
+│ └── setupTests.ts # Global test setup for the project
+├── index.html # Main HTML file used by Vite
+├── vite.config.ts # Vite bundler configuration
+├── tsconfig.json # TypeScript configuration files
+├── eslint.config.js # ESLint configuration
+├── commitlint.config.js # Commit message validation rules
+├── .editorconfig # Editor configuration for consistent formatting
+├── .env.sample # Sample environment variables file
+├── sonar-project.properties# Static code analysis configuration (SonarQube)
+└── README.md # Main project documentation
 ```
 
 ## 🚀 Getting Started
