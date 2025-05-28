@@ -27,6 +27,10 @@ const UpdateVinylPage: React.FC = () => {
     getVinylById(vinylId!);
   }, [vinylId, getVinylById]);
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   if (vinyl) {
     const releaseDate = new Date(vinyl.releaseDate).toISOString().split("T")[0];
     const styles = vinyl.styles ? vinyl.styles.join(", ") : "";
@@ -43,11 +47,8 @@ const UpdateVinylPage: React.FC = () => {
       notes: vinyl.notes,
       purchasedAt: vinyl.purchasedAt,
       isOwned: vinyl.isOwned,
+      id: vinyl.id,
     };
-
-    if (isLoading) {
-      return <Loader />;
-    }
 
     return (
       <>

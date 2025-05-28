@@ -7,10 +7,7 @@ export interface VinylClientStructure {
   deleteVinyl: (vinylId: string) => Promise<Vinyl>;
   addVinyl: (vinyl: VinylSendFormData) => Promise<Vinyl>;
   getVinylById: (vinylId: string) => Promise<Vinyl>;
-  updateVinyl: (
-    vinylId: string,
-    vinylUpdated: VinylSendFormData,
-  ) => Promise<Vinyl>;
+  updateVinyl: (vinylId: string, vinylUpdated: VinylDto) => Promise<Vinyl>;
 }
 
 export interface VinylsCollectionData {
