@@ -19,9 +19,11 @@
   color: var(--secondary-color);
   border: 9px solid var(--secondary-color);
   border-radius: 15px;
-  padding: 30px 50px;
-  height: 122px;
+  padding: 20px 40px;
+  min-height: 120px;
   position: fixed;
+  max-width: 400px;
+  width: 90%;
 }
 
 .modal-content--failure {

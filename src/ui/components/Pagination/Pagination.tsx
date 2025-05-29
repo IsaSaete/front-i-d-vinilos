@@ -12,7 +12,7 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   const vinylsByPage = 6;
   const pagesTotal = Math.ceil(vinylsTotal / vinylsByPage);
-  const previosPage = currentPage - 1;
+  const previousPage = currentPage - 1;
   const nextPage = currentPage + 1;
 
   const firstPageClass = currentPage > 1 ? "" : " paginator__link--hidden";
@@ -24,7 +24,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <Link
         aria-label="Ir a la página anterior"
         className={`paginator__link ${firstPageClass}`}
-        to={`/vinilos?page=${previosPage}`}
+        to={`/vinilos?page=${previousPage}`}
       >
         <img
           src="/previous.svg"
@@ -34,7 +34,7 @@ const Pagination: React.FC<PaginationProps> = ({
           aria-hidden="true"
         />
       </Link>
-      <span className="pagintator__current-page">{currentPage}</span>
+      <span className="paginator__current-page">{currentPage}</span>
       <Link
         aria-label="Ir a la página siguiente"
         className={`paginator__link ${lastPageClass}`}

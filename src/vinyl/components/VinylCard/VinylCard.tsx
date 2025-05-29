@@ -13,17 +13,15 @@ const VinylCard: React.FC<VinylCardProps> = ({
   vinyl: { title, coverImageUrl, artist, isOwned, id },
   index,
 }) => {
-  const loadingType = index <= 1 ? "eager" : "lazy";
+  const { updateVinylByOwned, deleteVinylById, vinylCollection } = useVinyls();
 
-  const { vinylCollection } = useVinyls();
+  const loadingType = index <= 1 ? "eager" : "lazy";
 
   const [searchParams] = useSearchParams();
 
   const pageNumber = searchParams.get("page")
     ? Number(searchParams.get("page"))
     : 1;
-
-  const { updateVinylByOwned, deleteVinylById } = useVinyls();
 
   const toggleisOwned = () => {
     updateVinylByOwned(id);
